@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+@theme {
+  /* ========== BRAND CORE COLORS ========== */
+  --color-bg-primary: #000000;          /* Main black background */
+  --color-bg-secondary: #0A0A0F;        /* Slight lifted black */
+  --color-bg-tertiary: #111118;         /* Card / section bg */
+  --color-bg-elevated: #16161F;         /* Elevated surfaces */
+
+  /* ========== BRAND BLUES (from logo) ========== */
+  --color-brand-50:  #E6F7FF;
+  --color-brand-100: #B8E8FF;
+  --color-brand-200: #7DD3FC;
+  --color-brand-300: #38BDF8;
+  --color-brand-400: #22D3EE;           /* Cyan glow */
+  --color-brand-500: #1E9FFF;           /* Main electric blue */
+  --color-brand-600: #2563EB;           /* Deep blue */
+  --color-brand-700: #1D4ED8;
+  --color-brand-800: #1E3A8A;
+  --color-brand-900: #0C1E4E;
+
+  /* ========== ACCENT / GLOW ========== */
+  --color-accent-cyan: #22D3EE;
+  --color-accent-blue: #3B82F6;
+  --color-accent-neon: #00E5FF;
+  --color-accent-purple: #6366F1;       /* Subtle purple mix for gradients */
+
+  /* ========== TEXT COLORS ========== */
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #C7C9D1;
+  --color-text-muted: #8B8D98;
+  --color-text-disabled: #4B4D57;
+  --color-text-brand: #22D3EE;
+
+  /* ========== BORDER & DIVIDERS ========== */
+  --color-border-subtle: rgba(255, 255, 255, 0.06);
+  --color-border-default: rgba(255, 255, 255, 0.10);
+  --color-border-strong: rgba(255, 255, 255, 0.18);
+  --color-border-brand: rgba(34, 211, 238, 0.35);
+
+  /* ========== STATUS COLORS ========== */
+  --color-success: #10B981;
+  --color-warning: #F59E0B;
+  --color-error:   #EF4444;
+  --color-info:    #3B82F6;
+
+  /* ========== GRADIENTS (use in bg-[image]) ========== */
+  --gradient-brand: linear-gradient(135deg, #1E9FFF 0%, #22D3EE 50%, #3B82F6 100%);
+  --gradient-brand-soft: linear-gradient(135deg, #2563EB 0%, #22D3EE 100%);
+  --gradient-hero: radial-gradient(circle at 50% 0%, rgba(34,211,238,0.15) 0%, rgba(0,0,0,0) 60%);
+  --gradient-glow: radial-gradient(circle, rgba(30,159,255,0.35) 0%, rgba(0,0,0,0) 70%);
+  --gradient-text: linear-gradient(135deg, #FFFFFF 0%, #22D3EE 50%, #1E9FFF 100%);
+  --gradient-dark: linear-gradient(180deg, #000000 0%, #0A0A0F 100%);
+
+  /* ========== SHADOWS / GLOWS ========== */
+  --shadow-glow-sm: 0 0 20px rgba(34, 211, 238, 0.25);
+  --shadow-glow-md: 0 0 40px rgba(34, 211, 238, 0.35);
+  --shadow-glow-lg: 0 0 80px rgba(30, 159, 255, 0.45);
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.5);
+}
+
+/* ========== GLOBAL BASE ========== */
+html, body {
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-family: 'Inter', system-ui, sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--color-bg-primary); }
+::-webkit-scrollbar-thumb {
+  background: var(--gradient-brand);
+  border-radius: 10px;
+}
