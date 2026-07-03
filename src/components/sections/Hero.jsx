@@ -18,38 +18,32 @@ import {
   Signal,
   Wifi,
   Battery,
+  MapPin,
 } from "lucide-react";
 
 // ============ DATA ============
 const heroHighlights = [
   { icon: Rocket, label: "Fast Turnaround" },
   { icon: Target, label: "ROI Focused" },
-  { icon: Sparkles, label: "Fresh Ideas" },
+  { icon: Sparkles, label: "Data-Driven" },
   { icon: Zap, label: "Founder-Led" },
 ];
 
 const marqueeItems = [
-  "SEO", "Social Media", "Web Design", "Google Ads",
-  "Branding", "Content", "Analytics", "Growth",
+  "GMB Optimization",
+  "Website Development",
+  "Social Media",
+  "WhatsApp Marketing",
+  "Google & Meta Ads",
+  "YouTube Marketing",
+  "SEO Services",
+  "Digital Business Card",
 ];
 
-// Phone screens (auto rotating)
 const phoneScreens = [
-  {
-    id: "analytics",
-    title: "Analytics Dashboard",
-    color: "from-blue-500 to-cyan-400",
-  },
-  {
-    id: "social",
-    title: "Social Media",
-    color: "from-pink-500 to-purple-500",
-  },
-  {
-    id: "seo",
-    title: "SEO Growth",
-    color: "from-green-500 to-emerald-400",
-  },
+  { id: "analytics", title: "Analytics" },
+  { id: "social", title: "Social" },
+  { id: "seo", title: "SEO" },
 ];
 
 // ============ HERO ============
@@ -65,7 +59,6 @@ const Hero = () => {
   const y = useTransform(scrollYProgress, [0, 1], [0, 150]);
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
-  // Auto-rotate phone screens
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveScreen((prev) => (prev + 1) % phoneScreens.length);
@@ -92,30 +85,32 @@ const Hero = () => {
   return (
     <section
       ref={heroRef}
-      className="relative min-h-screen w-full overflow-hidden bg-[var(--color-bg-primary)] pt-32 pb-32"
+      className="relative min-h-screen w-full overflow-hidden bg-[var(--color-bg-primary)] pt-24 pb-24"
     >
-      {/* ============ BACKGROUND ============ */}
+      {/* Background */}
       <div
         className="absolute inset-0 opacity-[0.07]"
         style={{
           backgroundImage: `linear-gradient(rgba(34,211,238,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(34,211,238,0.5) 1px, transparent 1px)`,
           backgroundSize: "60px 60px",
-          maskImage: "radial-gradient(ellipse 80% 60% at 50% 40%, black 40%, transparent 100%)",
-          WebkitMaskImage: "radial-gradient(ellipse 80% 60% at 50% 40%, black 40%, transparent 100%)",
+          maskImage:
+            "radial-gradient(ellipse 80% 60% at 50% 40%, black 40%, transparent 100%)",
+          WebkitMaskImage:
+            "radial-gradient(ellipse 80% 60% at 50% 40%, black 40%, transparent 100%)",
         }}
       />
       <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-[var(--color-brand-500)]/20 rounded-full blur-[150px] pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-[var(--color-accent-neon)]/15 rounded-full blur-[130px] pointer-events-none" />
       <div className="absolute bottom-1/4 left-0 w-[400px] h-[400px] bg-[var(--color-brand-600)]/15 rounded-full blur-[120px] pointer-events-none" />
 
-      {/* ============ TWO COLUMN LAYOUT ============ */}
+      {/* Layout */}
       <motion.div
         style={{ y, opacity }}
         className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-12 lg:gap-8 items-center min-h-[calc(100vh-16rem)]"
       >
-        {/* ========== LEFT: CONTENT ========== */}
+        {/* LEFT */}
         <div className="text-center lg:text-left">
-          {/* Badge */}
+          {/* Badge — UPDATED */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -130,8 +125,9 @@ const Hero = () => {
               Available for new projects
             </span>
             <span className="w-px h-3 bg-white/20" />
-            <span className="text-xs text-[var(--color-brand-400)] font-medium">
-              Launching 2025
+            <span className="flex items-center gap-1 text-xs text-[var(--color-brand-400)] font-medium">
+              <MapPin size={10} />
+              Kota • Indore
             </span>
           </motion.div>
 
@@ -171,17 +167,17 @@ const Hero = () => {
             </div>
           </h1>
 
-          {/* Subheading */}
+          {/* Subheading — UPDATED */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.4, duration: 0.8 }}
             className="max-w-xl mx-auto lg:mx-0 text-base sm:text-lg text-[var(--color-text-secondary)] leading-relaxed mb-8"
           >
-            A new-age digital marketing studio built for{" "}
-            <span className="text-white font-semibold">bold brands</span> and{" "}
-            <span className="text-white font-semibold">ambitious founders</span>.
-            We turn ideas into digital momentum.
+            A full-service digital marketing company from{" "}
+            <span className="text-white font-semibold">Kota & Indore</span> —
+            helping <span className="text-white font-semibold">startups, local businesses, and brands</span>{" "}
+            grow with strategy, consistency, and data-driven action.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -197,7 +193,10 @@ const Hero = () => {
             >
               <span className="relative z-10">Book Free Call</span>
               <span className="relative z-10 flex items-center justify-center w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm group-hover:bg-white/30 transition-all">
-                <ArrowUpRight size={16} className="text-white transition-transform duration-500 group-hover:rotate-45" />
+                <ArrowUpRight
+                  size={16}
+                  className="text-white transition-transform duration-500 group-hover:rotate-45"
+                />
               </span>
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
             </Link>
@@ -206,8 +205,13 @@ const Hero = () => {
               to="/services"
               className="group flex items-center gap-3 px-6 py-3.5 rounded-full bg-white/[0.03] border border-white/[0.08] hover:border-[var(--color-brand-400)]/50 hover:bg-white/[0.05] transition-all duration-500"
             >
-              <span className="text-white font-medium text-sm">Explore Services</span>
-              <ArrowUpRight size={14} className="text-[var(--color-brand-400)] group-hover:rotate-45 transition-transform duration-500" />
+              <span className="text-white font-medium text-sm">
+                Explore Services
+              </span>
+              <ArrowUpRight
+                size={14}
+                className="text-[var(--color-brand-400)] group-hover:rotate-45 transition-transform duration-500"
+              />
             </Link>
           </motion.div>
 
@@ -226,34 +230,34 @@ const Hero = () => {
                   className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.02] border border-white/[0.06] backdrop-blur-xl hover:border-[var(--color-brand-400)]/30 transition-all"
                 >
                   <Icon size={14} className="text-[var(--color-brand-400)]" />
-                  <span className="text-xs text-white font-medium">{item.label}</span>
+                  <span className="text-xs text-white font-medium">
+                    {item.label}
+                  </span>
                 </div>
               );
             })}
           </motion.div>
         </div>
 
-        {/* ========== RIGHT: 3D PHONE ========== */}
+        {/* RIGHT: PHONE */}
         <div className="relative flex items-center justify-center h-[600px] lg:h-[650px] perspective-[2000px]">
-          {/* Glow behind phone */}
           <div className="absolute w-[400px] h-[400px] bg-[var(--color-brand-500)]/30 rounded-full blur-[120px] pointer-events-none" />
           <div className="absolute w-[300px] h-[300px] bg-[var(--color-accent-neon)]/20 rounded-full blur-[100px] pointer-events-none animate-pulse" />
 
-          {/* Floating notification cards */}
           <FloatingCard
             className="top-[8%] -left-4 lg:-left-8"
             delay={2}
             icon={TrendingUp}
-            title="+248% Growth"
-            subtitle="Traffic increased"
+            title="+180% Growth"
+            subtitle="Local traffic up"
             gradient="from-green-500 to-emerald-400"
           />
           <FloatingCard
             className="top-[35%] -right-4 lg:-right-8"
             delay={2.3}
             icon={Heart}
-            title="12.5K"
-            subtitle="New followers"
+            title="Top 3 Rank"
+            subtitle="On Google Maps"
             gradient="from-pink-500 to-rose-400"
           />
           <FloatingCard
@@ -265,7 +269,6 @@ const Hero = () => {
             gradient="from-purple-500 to-indigo-400"
           />
 
-          {/* PHONE */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8, rotateY: -30 }}
             animate={{ opacity: 1, scale: 1, rotateY: 0 }}
@@ -280,20 +283,14 @@ const Hero = () => {
                 transformStyle: "preserve-3d",
               }}
             >
-              {/* Phone bezel highlight */}
               <div className="absolute inset-0 rounded-[3rem] bg-gradient-to-br from-white/10 via-transparent to-transparent pointer-events-none" />
-
-              {/* Side buttons */}
               <div className="absolute -left-[3px] top-24 w-[3px] h-12 bg-gray-700 rounded-l-md" />
               <div className="absolute -left-[3px] top-40 w-[3px] h-16 bg-gray-700 rounded-l-md" />
               <div className="absolute -right-[3px] top-32 w-[3px] h-20 bg-gray-700 rounded-r-md" />
 
-              {/* Screen */}
               <div className="relative w-full h-full rounded-[2.5rem] bg-[#0a0a0f] overflow-hidden">
-                {/* Dynamic Island / Notch */}
                 <div className="absolute top-2 left-1/2 -translate-x-1/2 w-24 h-6 bg-black rounded-full z-30 border border-gray-800" />
 
-                {/* Status bar */}
                 <div className="relative z-20 flex items-center justify-between px-6 pt-3 pb-2 text-white text-[10px] font-semibold">
                   <span>9:41</span>
                   <div className="flex items-center gap-1">
@@ -303,7 +300,6 @@ const Hero = () => {
                   </div>
                 </div>
 
-                {/* Screen content - auto rotating */}
                 <div className="relative w-full h-full">
                   <AnimatePresence mode="wait">
                     {activeScreen === 0 && <AnalyticsScreen key="analytics" />}
@@ -312,16 +308,14 @@ const Hero = () => {
                   </AnimatePresence>
                 </div>
 
-                {/* Screen indicators */}
                 <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-30">
                   {phoneScreens.map((_, i) => (
                     <div
                       key={i}
-                      className={`h-1 rounded-full transition-all duration-500 ${
-                        activeScreen === i
+                      className={`h-1 rounded-full transition-all duration-500 ${activeScreen === i
                           ? "w-6 bg-[var(--color-brand-400)]"
                           : "w-1.5 bg-white/30"
-                      }`}
+                        }`}
                     />
                   ))}
                 </div>
@@ -331,7 +325,7 @@ const Hero = () => {
         </div>
       </motion.div>
 
-      {/* ============ MARQUEE BOTTOM ============ */}
+      {/* Marquee */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -360,7 +354,6 @@ const Hero = () => {
         </div>
       </motion.div>
 
-      {/* Animations */}
       <style>{`
         .perspective-\\[2000px\\] { perspective: 2000px; }
         .phone-float {
@@ -384,7 +377,7 @@ const Hero = () => {
   );
 };
 
-// ============ FLOATING CARD ============
+// FLOATING CARD
 const FloatingCard = ({ className, delay, icon: Icon, title, subtitle, gradient }) => (
   <motion.div
     initial={{ opacity: 0, scale: 0.5, y: 20 }}
@@ -408,7 +401,7 @@ const FloatingCard = ({ className, delay, icon: Icon, title, subtitle, gradient 
   </motion.div>
 );
 
-// ============ PHONE SCREEN 1 — ANALYTICS ============
+// SCREEN 1 — ANALYTICS (Updated with realistic numbers)
 const AnalyticsScreen = () => (
   <motion.div
     initial={{ opacity: 0, x: 30 }}
@@ -419,7 +412,7 @@ const AnalyticsScreen = () => (
   >
     <div className="flex items-center justify-between mb-4">
       <div>
-        <p className="text-[9px] text-white/50">Overview</p>
+        <p className="text-[9px] text-white/50">Growth Report</p>
         <h3 className="text-sm font-bold text-white">Analytics</h3>
       </div>
       <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-cyan-400 flex items-center justify-center">
@@ -427,23 +420,21 @@ const AnalyticsScreen = () => (
       </div>
     </div>
 
-    {/* Big number */}
     <div className="bg-gradient-to-br from-blue-600/20 to-cyan-500/20 border border-cyan-400/30 rounded-2xl p-4 mb-3">
-      <p className="text-[9px] text-white/60 mb-1">Total Visitors</p>
+      <p className="text-[9px] text-white/60 mb-1">Website Visitors</p>
       <div className="flex items-baseline gap-1">
         <motion.h2
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           className="text-2xl font-bold text-white"
         >
-          24.5K
+          8.4K
         </motion.h2>
-        <span className="text-[10px] text-green-400 font-semibold">+18%</span>
+        <span className="text-[10px] text-green-400 font-semibold">+42%</span>
       </div>
 
-      {/* Mini chart */}
       <div className="flex items-end gap-1 mt-3 h-12">
-        {[40, 65, 45, 80, 55, 90, 70, 95].map((h, i) => (
+        {[40, 55, 45, 70, 60, 85, 75, 92].map((h, i) => (
           <motion.div
             key={i}
             initial={{ height: 0 }}
@@ -455,11 +446,10 @@ const AnalyticsScreen = () => (
       </div>
     </div>
 
-    {/* Stats grid */}
     <div className="grid grid-cols-2 gap-2">
       {[
-        { label: "Clicks", val: "1.2K", color: "text-green-400" },
-        { label: "Sales", val: "$8.4K", color: "text-cyan-400" },
+        { label: "Leads", val: "126", color: "text-green-400" },
+        { label: "Calls", val: "84", color: "text-cyan-400" },
       ].map((s, i) => (
         <div key={i} className="bg-white/5 border border-white/10 rounded-xl p-2.5">
           <p className="text-[8px] text-white/50">{s.label}</p>
@@ -470,7 +460,7 @@ const AnalyticsScreen = () => (
   </motion.div>
 );
 
-// ============ PHONE SCREEN 2 — SOCIAL MEDIA ============
+// SCREEN 2 — SOCIAL
 const SocialScreen = () => (
   <motion.div
     initial={{ opacity: 0, x: 30 }}
@@ -484,7 +474,6 @@ const SocialScreen = () => (
       <Bell size={14} className="text-white/60" />
     </div>
 
-    {/* Post card */}
     <div className="bg-white/5 border border-white/10 rounded-2xl overflow-hidden mb-3">
       <div className="flex items-center gap-2 p-2.5">
         <div className="w-7 h-7 rounded-full bg-gradient-to-br from-pink-500 to-purple-500" />
@@ -503,20 +492,19 @@ const SocialScreen = () => (
           className="flex items-center gap-1"
         >
           <Heart size={12} className="text-pink-500" fill="currentColor" />
-          <span className="text-[10px] text-white">2.4K</span>
+          <span className="text-[10px] text-white">548</span>
         </motion.div>
         <div className="flex items-center gap-1">
           <MessageCircle size={12} className="text-white/60" />
-          <span className="text-[10px] text-white">128</span>
+          <span className="text-[10px] text-white">42</span>
         </div>
         <div className="flex items-center gap-1">
           <Send size={12} className="text-white/60" />
-          <span className="text-[10px] text-white">89</span>
+          <span className="text-[10px] text-white">28</span>
         </div>
       </div>
     </div>
 
-    {/* Engagement bar */}
     <div className="bg-gradient-to-r from-pink-500/20 to-purple-500/20 border border-pink-400/30 rounded-xl p-3">
       <div className="flex items-center justify-between mb-1.5">
         <span className="text-[10px] text-white/70">Engagement Rate</span>
@@ -534,7 +522,7 @@ const SocialScreen = () => (
   </motion.div>
 );
 
-// ============ PHONE SCREEN 3 — SEO ============
+// SCREEN 3 — SEO
 const SEOScreen = () => (
   <motion.div
     initial={{ opacity: 0, x: 30 }}
@@ -548,7 +536,6 @@ const SEOScreen = () => (
       <Search size={14} className="text-white/60" />
     </div>
 
-    {/* Score circle */}
     <div className="bg-gradient-to-br from-green-500/20 to-emerald-400/20 border border-green-400/30 rounded-2xl p-4 mb-3 flex items-center gap-3">
       <div className="relative w-16 h-16">
         <svg className="w-full h-full -rotate-90">
@@ -581,12 +568,11 @@ const SEOScreen = () => (
       </div>
     </div>
 
-    {/* Keywords */}
     <div className="space-y-1.5">
       {[
-        { kw: "digital marketing", rank: "#3" },
-        { kw: "seo services", rank: "#5" },
-        { kw: "web design", rank: "#2" },
+        { kw: "digital marketing kota", rank: "#2" },
+        { kw: "seo company indore", rank: "#4" },
+        { kw: "gmb optimization", rank: "#3" },
       ].map((k, i) => (
         <motion.div
           key={i}
