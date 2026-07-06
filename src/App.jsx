@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import Lenis from "lenis";
 import Home from "./pages/Home";
 import Navbar from "./components/layout/Navbar";
+import Footer from "./components/layout/Footer";
 
 export default function App() {
 
@@ -24,6 +25,7 @@ export default function App() {
     <>
     <Navbar />
       <Home />
+      <Footer />
     </>
   );
 }

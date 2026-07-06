@@ -20,7 +20,7 @@ const faqs = [
     id: 2,
     question: "How long does it take to see results?",
     answer:
-      "Ads deliver results in days. SEO takes 3-6 months for meaningful growth. Social media traction usually starts within 30-60 days. We share realistic timelines during our discovery call — no fake promises.",
+      "We take up India-level challenges with confidence — GMB Ranking in just 1.5 months and SEO Optimization results within 3 months. Google & Meta Ads deliver results in days, while social media traction begins within 30-60 days. No fake promises, only realistic timelines backed by proven strategies.",
   },
   {
     id: 3,

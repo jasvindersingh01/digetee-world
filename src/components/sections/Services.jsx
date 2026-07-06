@@ -6,11 +6,13 @@ import {
   Globe,
   CreditCard,
   Search,
-  MapPin,
+  Bot,
+  PhoneCall,
+  CalendarCheck,
+  BrainCircuit,
 } from "lucide-react";
 
 import { FaInstagram, FaWhatsapp, FaYoutube, FaGoogle } from "react-icons/fa";
-import { SiGoogleads, SiMeta } from "react-icons/si";
 import { TbTargetArrow } from "react-icons/tb";
 
 // ============ DATA ============
@@ -103,6 +105,50 @@ const services = [
     gradient: "from-indigo-500 to-blue-500",
     slug: "seo-services",
   },
+  {
+    id: 9,
+    number: "09",
+    icon: Bot,
+    name: "AI Chatbot",
+    tagline: "24/7 Smart Customer Support",
+    description:
+      "Intelligent AI chatbots for websites, WhatsApp, and social media that answer queries, capture leads, and support customers round the clock.",
+    gradient: "from-fuchsia-500 to-pink-500",
+    slug: "ai-chatbot",
+  },
+  {
+    id: 10,
+    number: "10",
+    icon: PhoneCall,
+    name: "AI Call Agent",
+    tagline: "Automated Voice Conversations",
+    description:
+      "AI-powered voice agents that handle inbound calls, qualify leads, book appointments, and provide human-like responses in multiple languages.",
+    gradient: "from-purple-500 to-indigo-500",
+    slug: "ai-call-agent",
+  },
+  {
+    id: 11,
+    number: "11",
+    icon: CalendarCheck,
+    name: "Appointment Booking Tool",
+    tagline: "Automated Scheduling System",
+    description:
+      "Smart appointment booking systems integrated with your website, WhatsApp, and GMB — with reminders, confirmations, and calendar sync.",
+    gradient: "from-teal-500 to-cyan-500",
+    slug: "appointment-booking-tool",
+  },
+  {
+    id: 12,
+    number: "12",
+    icon: BrainCircuit,
+    name: "AI Business Tools",
+    tagline: "Automation • Insights • Growth",
+    description:
+      "Custom AI-powered business tools for automation, content generation, data analysis, and workflow optimization tailored to your business needs.",
+    gradient: "from-yellow-500 to-orange-500",
+    slug: "ai-business-tools",
+  },
 ];
 
 // ============ COMPONENT ============
@@ -152,9 +198,9 @@ const Services = () => {
             </h2>
 
             <p className="text-base md:text-lg text-[var(--color-text-secondary)] leading-relaxed">
-              From local presence to paid campaigns, we provide focused digital
-              solutions that help businesses build visibility, generate trust,
-              and grow consistently.
+              From local presence to AI-powered automation, we deliver
+              end-to-end digital solutions that help businesses build
+              visibility, generate trust, and grow consistently.
             </p>
           </div>
 
@@ -198,7 +244,7 @@ const Services = () => {
                 Need the right service mix for your business?
               </h3>
               <p className="text-sm md:text-base text-[var(--color-text-secondary)]">
-                Let’s discuss your goals and suggest the best digital strategy
+                Let's discuss your goals and suggest the best digital strategy
                 for your business.
               </p>
             </div>
@@ -284,15 +330,5 @@ const ServiceCard = ({ service, index }) => {
     </motion.div>
   );
 };
-
-// ============ CUSTOM ADS ICON ============
-function AdsIcon(props) {
-  return (
-    <div className="relative flex items-center justify-center">
-      <SiGoogleads {...props} className="text-white absolute -left-[5px]" />
-      <SiMeta {...props} className="text-white absolute left-[5px] opacity-90" />
-    </div>
-  );
-}
 
 export default Services;
