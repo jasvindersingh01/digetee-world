@@ -11,6 +11,7 @@ import ScrollToTop from "./components/common/ScrollToTop";
 import Home from "./pages/Home";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
+import AboutPage from "./pages/AboutPage";
 
 export default function App() {
   useEffect(() => {
@@ -34,6 +35,7 @@ export default function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/about" element={<AboutPage />} />
         <Route path="/privacy-policy" element={<Privacy />} />
         <Route path="/terms" element={<Terms />} />
       </Routes>
