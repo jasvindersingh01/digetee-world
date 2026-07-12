@@ -14,6 +14,8 @@ import Terms from "./pages/Terms";
 import AboutPage from "./pages/AboutPage";
 import Services from "./components/sections/Services";
 import ServicesPage from "./pages/ServicesPage";
+import ProductsPage from "./pages/ProductsPage";
+import ProductDetail from "./pages/ProductDetail";
 
 export default function App() {
   useEffect(() => {
@@ -39,6 +41,11 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/services" element={<ServicesPage />} />
+        <Route path="/products" element={<ProductsPage />} />
+        <Route path="/products/:id" element={<ProductDetail />} />
+
+
+
         <Route path="/privacy-policy" element={<Privacy />} />
         <Route path="/terms" element={<Terms />} />
       </Routes>
