@@ -219,281 +219,281 @@ const HeroSection = () => (
 // ============ COMPANY STORY ============
 // ============ COMPANY STORY ============
 const CompanyStory = () => (
-  <div className="relative w-full overflow-hidden py-16 md:py-24">
-    <div className="absolute top-1/4 -left-40 w-[500px] h-[500px] bg-[var(--color-brand-600)]/10 rounded-full blur-[130px] pointer-events-none" />
-    <div className="absolute bottom-1/4 -right-40 w-[500px] h-[500px] bg-[var(--color-accent-neon)]/10 rounded-full blur-[130px] pointer-events-none" />
+    <div className="relative w-full overflow-hidden py-16 md:py-24">
+        <div className="absolute top-1/4 -left-40 w-[500px] h-[500px] bg-[var(--color-brand-600)]/10 rounded-full blur-[130px] pointer-events-none" />
+        <div className="absolute bottom-1/4 -right-40 w-[500px] h-[500px] bg-[var(--color-accent-neon)]/10 rounded-full blur-[130px] pointer-events-none" />
 
-    <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10">
-      <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-        {/* ========== LEFT: CONTENT ========== */}
-        <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7 }}
-        >
-          <div className="inline-flex items-center gap-2 mb-5">
-            <div className="w-8 h-[1px] bg-[var(--color-brand-400)]" />
-            <span className="text-xs uppercase tracking-[0.3em] text-[var(--color-brand-400)] font-semibold">
-              Who We Are
-            </span>
-          </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10">
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                {/* ========== LEFT: CONTENT ========== */}
+                <motion.div
+                    initial={{ opacity: 0, x: -30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.7 }}
+                >
+                    <div className="inline-flex items-center gap-2 mb-5">
+                        <div className="w-8 h-[1px] bg-[var(--color-brand-400)]" />
+                        <span className="text-xs uppercase tracking-[0.3em] text-[var(--color-brand-400)] font-semibold">
+                            Who We Are
+                        </span>
+                    </div>
 
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-[1.05] tracking-tight">
-            Powering brands from{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-brand-500)] via-[var(--color-accent-neon)] to-[var(--color-brand-400)]">
-              Kota & Indore
-            </span>{" "}
-            to the world
-          </h2>
+                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-[1.05] tracking-tight">
+                        Powering brands from{" "}
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-brand-500)] via-[var(--color-accent-neon)] to-[var(--color-brand-400)]">
+                            Kota & Indore
+                        </span>{" "}
+                        to the world
+                    </h2>
 
-          <div className="space-y-4 text-[var(--color-text-secondary)] leading-relaxed mb-8">
-            <p>
-              <span className="text-white font-semibold">Digitee World</span> is
-              a full-service Digital Marketing Company dedicated to helping
-              startups, local businesses, and established brands build a
-              powerful online presence and achieve measurable growth.
-            </p>
-            <p>
-              Our philosophy is rooted in what we proudly call the{" "}
-              <span className="text-[var(--color-brand-400)] font-semibold">
-                Physics of Business Growth
-              </span>{" "}
-              — every business grows through the right mix of strategy,
-              consistency, and data-driven action.
-            </p>
-          </div>
+                    <div className="space-y-4 text-[var(--color-text-secondary)] leading-relaxed mb-8">
+                        <p>
+                            <span className="text-white font-semibold">Digitee World</span> is
+                            a full-service Digital Marketing Company dedicated to helping
+                            startups, local businesses, and established brands build a
+                            powerful online presence and achieve measurable growth.
+                        </p>
+                        <p>
+                            Our philosophy is rooted in what we proudly call the{" "}
+                            <span className="text-[var(--color-brand-400)] font-semibold">
+                                Physics of Business Growth
+                            </span>{" "}
+                            — every business grows through the right mix of strategy,
+                            consistency, and data-driven action.
+                        </p>
+                    </div>
 
-          {/* Feature list */}
-          <div className="space-y-3">
-            {[
-              "Serving businesses across Rajasthan & Madhya Pradesh",
-              "Registered with MSME, Sanstha Aadhaar & ISO certified",
-              "Two branches for wider reach and personal touch",
-              "Ethical, transparent, and result-oriented approach",
-            ].map((point, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 + i * 0.1 }}
-                className="flex items-start gap-3"
-              >
-                <div className="flex items-center justify-center w-6 h-6 rounded-full bg-[var(--color-brand-400)]/10 border border-[var(--color-brand-400)]/30 flex-shrink-0 mt-0.5">
-                  <BadgeCheck size={12} className="text-[var(--color-brand-400)]" />
-                </div>
-                <span className="text-sm text-[var(--color-text-secondary)]">
-                  {point}
-                </span>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
+                    {/* Feature list */}
+                    <div className="space-y-3">
+                        {[
+                            "Serving businesses across Rajasthan & Madhya Pradesh",
+                            "Registered with MSME, Sanstha Aadhaar & ISO certified",
+                            "Two branches for wider reach and personal touch",
+                            "Ethical, transparent, and result-oriented approach",
+                        ].map((point, i) => (
+                            <motion.div
+                                key={i}
+                                initial={{ opacity: 0, x: -20 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 0.2 + i * 0.1 }}
+                                className="flex items-start gap-3"
+                            >
+                                <div className="flex items-center justify-center w-6 h-6 rounded-full bg-[var(--color-brand-400)]/10 border border-[var(--color-brand-400)]/30 flex-shrink-0 mt-0.5">
+                                    <BadgeCheck size={12} className="text-[var(--color-brand-400)]" />
+                                </div>
+                                <span className="text-sm text-[var(--color-text-secondary)]">
+                                    {point}
+                                </span>
+                            </motion.div>
+                        ))}
+                    </div>
+                </motion.div>
 
-        {/* ========== RIGHT: ROTATING GLOBE ========== */}
-        <motion.div
-          initial={{ opacity: 0, x: 30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8 }}
-          className="relative flex items-center justify-center min-h-[500px]"
-        >
-          <RotatingGlobe />
-        </motion.div>
-      </div>
+                {/* ========== RIGHT: ROTATING GLOBE ========== */}
+                <motion.div
+                    initial={{ opacity: 0, x: 30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.8 }}
+                    className="relative flex items-center justify-center min-h-[500px]"
+                >
+                    <RotatingGlobe />
+                </motion.div>
+            </div>
+        </div>
     </div>
-  </div>
 );
 
 // ============ ROTATING GLOBE COMPONENT ============
 const RotatingGlobe = () => {
-  return (
-    <div className="relative w-[400px] h-[400px] md:w-[500px] md:h-[500px] flex items-center justify-center">
-      {/* Outer glow */}
-      <div className="absolute inset-0 bg-[var(--color-brand-500)]/20 rounded-full blur-[80px] pointer-events-none" />
-      <div className="absolute inset-10 bg-[var(--color-accent-neon)]/15 rounded-full blur-[60px] pointer-events-none animate-pulse" />
+    return (
+        <div className="relative w-[400px] h-[400px] md:w-[500px] md:h-[500px] flex items-center justify-center">
+            {/* Outer glow */}
+            <div className="absolute inset-0 bg-[var(--color-brand-500)]/20 rounded-full blur-[80px] pointer-events-none" />
+            <div className="absolute inset-10 bg-[var(--color-accent-neon)]/15 rounded-full blur-[60px] pointer-events-none animate-pulse" />
 
-      {/* Floating stat cards */}
-      <FloatingStatCard
-        className="top-[5%] -left-4 md:-left-12"
-        delay={0.5}
-        icon={MapPin}
-        title="Kota"
-        subtitle="Head Office"
-      />
-      <FloatingStatCard
-        className="top-[45%] -right-4 md:-right-12"
-        delay={0.7}
-        icon={MapPin}
-        title="Indore"
-        subtitle="Corporate Office"
-      />
-      <FloatingStatCard
-        className="bottom-[5%] left-1/2 -translate-x-1/2 md:left-[10%] md:translate-x-0"
-        delay={0.9}
-        icon={TrendingUp}
-        title="Pan India"
-        subtitle="Remote reach"
-      />
+            {/* Floating stat cards */}
+            <FloatingStatCard
+                className="top-[5%] -left-4 md:-left-12"
+                delay={0.5}
+                icon={MapPin}
+                title="Kota"
+                subtitle="Head Office"
+            />
+            <FloatingStatCard
+                className="top-[45%] -right-4 md:-right-12"
+                delay={0.7}
+                icon={MapPin}
+                title="Indore"
+                subtitle="Corporate Office"
+            />
+            <FloatingStatCard
+                className="bottom-[5%] left-1/2 -translate-x-1/2 md:left-[10%] md:translate-x-0"
+                delay={0.9}
+                icon={TrendingUp}
+                title="Pan India"
+                subtitle="Remote reach"
+            />
 
-      {/* Main globe */}
-      <div className="relative w-72 h-72 md:w-80 md:h-80 flex items-center justify-center perspective-[1000px]">
-        {/* Rotating outer rings */}
-        <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-          className="absolute inset-0 rounded-full border-2 border-dashed border-[var(--color-brand-400)]/30"
-        />
-        <motion.div
-          animate={{ rotate: -360 }}
-          transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-          className="absolute inset-4 rounded-full border border-[var(--color-brand-400)]/20"
-        />
+            {/* Main globe */}
+            <div className="relative w-72 h-72 md:w-80 md:h-80 flex items-center justify-center perspective-[1000px]">
+                {/* Rotating outer rings */}
+                <motion.div
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+                    className="absolute inset-0 rounded-full border-2 border-dashed border-[var(--color-brand-400)]/30"
+                />
+                <motion.div
+                    animate={{ rotate: -360 }}
+                    transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                    className="absolute inset-4 rounded-full border border-[var(--color-brand-400)]/20"
+                />
 
-        {/* Main sphere */}
-        <div className="relative w-full h-full rounded-full overflow-hidden shadow-[0_0_60px_rgba(34,211,238,0.4)]">
-          {/* Base gradient sphere */}
-          <div
-            className="absolute inset-0 rounded-full"
-            style={{
-              background: `radial-gradient(circle at 30% 30%, 
+                {/* Main sphere */}
+                <div className="relative w-full h-full rounded-full overflow-hidden shadow-[0_0_60px_rgba(34,211,238,0.4)]">
+                    {/* Base gradient sphere */}
+                    <div
+                        className="absolute inset-0 rounded-full"
+                        style={{
+                            background: `radial-gradient(circle at 30% 30%, 
                 rgba(34, 211, 238, 0.8) 0%, 
                 rgba(30, 159, 255, 0.6) 30%, 
                 rgba(37, 99, 235, 0.4) 60%, 
                 rgba(12, 30, 78, 0.9) 100%)`,
-            }}
-          />
+                        }}
+                    />
 
-          {/* Grid overlay - latitude lines */}
-          <div className="absolute inset-0 rounded-full overflow-hidden">
-            {[...Array(6)].map((_, i) => (
-              <div
-                key={`lat-${i}`}
-                className="absolute left-0 right-0 border-t border-[var(--color-brand-400)]/20"
-                style={{ top: `${(i + 1) * 14}%` }}
-              />
-            ))}
-            {/* Longitude lines */}
-            {[...Array(8)].map((_, i) => (
-              <div
-                key={`lon-${i}`}
-                className="absolute top-0 bottom-0 border-l border-[var(--color-brand-400)]/15"
-                style={{
-                  left: `${(i + 1) * 11}%`,
-                  transform: `perspective(500px) rotateY(${i * 20}deg)`,
-                }}
-              />
-            ))}
-          </div>
+                    {/* Grid overlay - latitude lines */}
+                    <div className="absolute inset-0 rounded-full overflow-hidden">
+                        {[...Array(6)].map((_, i) => (
+                            <div
+                                key={`lat-${i}`}
+                                className="absolute left-0 right-0 border-t border-[var(--color-brand-400)]/20"
+                                style={{ top: `${(i + 1) * 14}%` }}
+                            />
+                        ))}
+                        {/* Longitude lines */}
+                        {[...Array(8)].map((_, i) => (
+                            <div
+                                key={`lon-${i}`}
+                                className="absolute top-0 bottom-0 border-l border-[var(--color-brand-400)]/15"
+                                style={{
+                                    left: `${(i + 1) * 11}%`,
+                                    transform: `perspective(500px) rotateY(${i * 20}deg)`,
+                                }}
+                            />
+                        ))}
+                    </div>
 
-          {/* Rotating texture layer */}
-          <motion.div
-            animate={{ backgroundPosition: ["0% 0%", "100% 0%"] }}
-            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-            className="absolute inset-0 rounded-full opacity-40"
-            style={{
-              background: `radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.4) 100%),
+                    {/* Rotating texture layer */}
+                    <motion.div
+                        animate={{ backgroundPosition: ["0% 0%", "100% 0%"] }}
+                        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                        className="absolute inset-0 rounded-full opacity-40"
+                        style={{
+                            background: `radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.4) 100%),
                 repeating-linear-gradient(90deg, 
                   transparent 0px, 
                   transparent 20px, 
                   rgba(34, 211, 238, 0.1) 20px, 
                   rgba(34, 211, 238, 0.1) 22px)`,
-              backgroundSize: "200% 100%",
-            }}
-          />
+                            backgroundSize: "200% 100%",
+                        }}
+                    />
 
-          {/* Highlight/shine on top-left */}
-          <div
-            className="absolute top-4 left-4 w-24 h-24 rounded-full opacity-40"
-            style={{
-              background: `radial-gradient(circle, rgba(255,255,255,0.8) 0%, transparent 70%)`,
-              filter: "blur(15px)",
-            }}
-          />
+                    {/* Highlight/shine on top-left */}
+                    <div
+                        className="absolute top-4 left-4 w-24 h-24 rounded-full opacity-40"
+                        style={{
+                            background: `radial-gradient(circle, rgba(255,255,255,0.8) 0%, transparent 70%)`,
+                            filter: "blur(15px)",
+                        }}
+                    />
 
-          {/* Location markers on globe (Kota + Indore) */}
-          <div className="absolute inset-0">
-            {/* Kota marker */}
-            <div className="absolute top-[35%] left-[38%]">
-              <div className="relative">
-                <div className="absolute inset-0 bg-[var(--color-brand-400)] rounded-full blur-md animate-ping opacity-75" />
-                <div className="relative w-3 h-3 rounded-full bg-[var(--color-brand-400)] shadow-[0_0_10px_var(--color-brand-400)] border-2 border-white" />
-              </div>
+                    {/* Location markers on globe (Kota + Indore) */}
+                    <div className="absolute inset-0">
+                        {/* Kota marker */}
+                        <div className="absolute top-[35%] left-[38%]">
+                            <div className="relative">
+                                <div className="absolute inset-0 bg-[var(--color-brand-400)] rounded-full blur-md animate-ping opacity-75" />
+                                <div className="relative w-3 h-3 rounded-full bg-[var(--color-brand-400)] shadow-[0_0_10px_var(--color-brand-400)] border-2 border-white" />
+                            </div>
+                        </div>
+
+                        {/* Indore marker */}
+                        <div className="absolute top-[45%] left-[42%]">
+                            <div className="relative">
+                                <div
+                                    className="absolute inset-0 bg-[var(--color-accent-neon)] rounded-full blur-md animate-ping opacity-75"
+                                    style={{ animationDelay: "0.5s" }}
+                                />
+                                <div className="relative w-3 h-3 rounded-full bg-[var(--color-accent-neon)] shadow-[0_0_10px_var(--color-accent-neon)] border-2 border-white" />
+                            </div>
+                        </div>
+
+                        {/* Small city dots (decorative) */}
+                        {[
+                            { top: "28%", left: "55%" },
+                            { top: "55%", left: "35%" },
+                            { top: "40%", left: "62%" },
+                            { top: "60%", left: "48%" },
+                            { top: "32%", left: "48%" },
+                        ].map((pos, i) => (
+                            <div
+                                key={i}
+                                className="absolute w-1.5 h-1.5 rounded-full bg-white/40"
+                                style={pos}
+                            />
+                        ))}
+                    </div>
+
+                    {/* Orbiting dot */}
+                    <motion.div
+                        animate={{ rotate: 360 }}
+                        transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+                        className="absolute inset-0"
+                    >
+                        <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-[var(--color-brand-400)] shadow-[0_0_20px_var(--color-brand-400)] border-2 border-white" />
+                    </motion.div>
+                </div>
+
+                {/* Bottom label */}
+                <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/80 backdrop-blur-xl border border-[var(--color-brand-400)]/30 shadow-lg z-10">
+                    <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+                    <span className="text-[10px] uppercase tracking-wider text-white font-semibold">
+                        Live • Serving India
+                    </span>
+                </div>
             </div>
-
-            {/* Indore marker */}
-            <div className="absolute top-[45%] left-[42%]">
-              <div className="relative">
-                <div
-                  className="absolute inset-0 bg-[var(--color-accent-neon)] rounded-full blur-md animate-ping opacity-75"
-                  style={{ animationDelay: "0.5s" }}
-                />
-                <div className="relative w-3 h-3 rounded-full bg-[var(--color-accent-neon)] shadow-[0_0_10px_var(--color-accent-neon)] border-2 border-white" />
-              </div>
-            </div>
-
-            {/* Small city dots (decorative) */}
-            {[
-              { top: "28%", left: "55%" },
-              { top: "55%", left: "35%" },
-              { top: "40%", left: "62%" },
-              { top: "60%", left: "48%" },
-              { top: "32%", left: "48%" },
-            ].map((pos, i) => (
-              <div
-                key={i}
-                className="absolute w-1.5 h-1.5 rounded-full bg-white/40"
-                style={pos}
-              />
-            ))}
-          </div>
-
-          {/* Orbiting dot */}
-          <motion.div
-            animate={{ rotate: 360 }}
-            transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-            className="absolute inset-0"
-          >
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-[var(--color-brand-400)] shadow-[0_0_20px_var(--color-brand-400)] border-2 border-white" />
-          </motion.div>
         </div>
-
-        {/* Bottom label */}
-        <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/80 backdrop-blur-xl border border-[var(--color-brand-400)]/30 shadow-lg z-10">
-          <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-          <span className="text-[10px] uppercase tracking-wider text-white font-semibold">
-            Live • Serving India
-          </span>
-        </div>
-      </div>
-    </div>
-  );
+    );
 };
 
 // ============ FLOATING STAT CARD ============
 const FloatingStatCard = ({ className, delay, icon: Icon, title, subtitle }) => (
-  <motion.div
-    initial={{ opacity: 0, scale: 0.5 }}
-    whileInView={{ opacity: 1, scale: 1 }}
-    viewport={{ once: true }}
-    transition={{ delay, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-    className={`absolute z-20 ${className}`}
-  >
     <motion.div
-      animate={{ y: [0, -10, 0] }}
-      transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: Math.random() }}
-      className="flex items-center gap-2.5 px-3 py-2 rounded-2xl bg-black/70 backdrop-blur-xl border border-white/10 shadow-2xl"
+        initial={{ opacity: 0, scale: 0.5 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ delay, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+        className={`absolute z-20 ${className}`}
     >
-      <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[var(--color-brand-500)] to-[var(--color-brand-400)] flex items-center justify-center shadow-lg">
-        <Icon size={14} className="text-white" />
-      </div>
-      <div>
-        <p className="text-xs font-bold text-white leading-tight">{title}</p>
-        <p className="text-[9px] text-white/60">{subtitle}</p>
-      </div>
+        <motion.div
+            animate={{ y: [0, -10, 0] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: Math.random() }}
+            className="flex items-center gap-2.5 px-3 py-2 rounded-2xl bg-black/70 backdrop-blur-xl border border-white/10 shadow-2xl"
+        >
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[var(--color-brand-500)] to-[var(--color-brand-400)] flex items-center justify-center shadow-lg">
+                <Icon size={14} className="text-white" />
+            </div>
+            <div>
+                <p className="text-xs font-bold text-white leading-tight">{title}</p>
+                <p className="text-[9px] text-white/60">{subtitle}</p>
+            </div>
+        </motion.div>
     </motion.div>
-  </motion.div>
 );
 
 // ============ JOURNEY TIMELINE ============

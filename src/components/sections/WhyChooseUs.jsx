@@ -62,16 +62,6 @@ const reasons = [
   },
 ];
 
-const comparisonPoints = [
-  { feature: "Strategic Framework", others: false, us: true },
-  { feature: "Founder-Led Communication", others: false, us: true },
-  { feature: "Local Market Expertise (Kota & Indore)", others: false, us: true },
-  { feature: "Transparent Reporting", others: true, us: true },
-  { feature: "Custom Strategy per Client", others: false, us: true },
-  { feature: "Fast Turnaround", others: true, us: true },
-  { feature: "Long-term Partnerships", others: false, us: true },
-];
-
 // ============ COMPONENT ============
 const WhyChooseUs = () => {
   return (
@@ -294,81 +284,6 @@ const WhyChooseUs = () => {
             );
           })}
         </div>
-
-        {/* ============ COMPARISON TABLE ============ */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7 }}
-          className="relative p-8 md:p-10 rounded-3xl bg-gradient-to-br from-white/[0.04] to-white/[0.01] border border-white/[0.08] backdrop-blur-xl overflow-hidden"
-        >
-          <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--color-brand-500)]/15 rounded-full blur-[100px] pointer-events-none" />
-
-          <div className="relative">
-            <div className="text-center mb-8">
-              <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
-                How we compare
-              </h3>
-              <p className="text-sm text-[var(--color-text-muted)]">
-                Here's what sets Digitee World apart from the rest
-              </p>
-            </div>
-
-            {/* Table */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-center mb-2 pb-4 border-b border-white/[0.06]">
-              <div className="text-xs uppercase tracking-wider text-[var(--color-text-muted)] font-semibold">
-                Feature
-              </div>
-              <div className="text-xs uppercase tracking-wider text-[var(--color-text-muted)] font-semibold text-center">
-                Other Agencies
-              </div>
-              <div className="text-xs uppercase tracking-wider text-[var(--color-brand-400)] font-semibold text-center">
-                Digitee World
-              </div>
-            </div>
-
-            {comparisonPoints.map((point, i) => (
-              <motion.div
-                key={point.feature}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.05 }}
-                className="grid grid-cols-1 md:grid-cols-3 gap-4 items-center py-3 border-b border-white/[0.04] last:border-0"
-              >
-                <div className="text-sm text-white font-medium">
-                  {point.feature}
-                </div>
-                <div className="flex justify-center">
-                  {point.others ? (
-                    <div className="w-7 h-7 rounded-full bg-white/5 flex items-center justify-center">
-                      <Check size={14} className="text-[var(--color-text-muted)]" />
-                    </div>
-                  ) : (
-                    <div className="w-7 h-7 rounded-full bg-red-500/10 flex items-center justify-center">
-                      <X size={14} className="text-red-400" />
-                    </div>
-                  )}
-                </div>
-                <div className="flex justify-center">
-                  {point.us ? (
-                    <motion.div
-                      whileHover={{ scale: 1.1 }}
-                      className="w-7 h-7 rounded-full bg-[var(--color-brand-400)]/20 flex items-center justify-center shadow-[0_0_15px_rgba(34,211,238,0.3)]"
-                    >
-                      <Check size={14} className="text-[var(--color-brand-400)]" strokeWidth={3} />
-                    </motion.div>
-                  ) : (
-                    <div className="w-7 h-7 rounded-full bg-white/5 flex items-center justify-center">
-                      <X size={14} className="text-[var(--color-text-muted)]" />
-                    </div>
-                  )}
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
 
         {/* ============ CTA ============ */}
         <motion.div
