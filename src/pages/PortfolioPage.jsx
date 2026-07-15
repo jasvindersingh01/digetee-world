@@ -23,7 +23,6 @@ const PortfolioPage = () => {
       ? portfolioItems
       : portfolioItems.filter((item) => item.category === activeCategory);
 
-  // Lightbox slides
   const slides = filteredItems.map((item) => ({
     src: item.image,
     alt: item.title,
@@ -40,10 +39,8 @@ const PortfolioPage = () => {
           style={{
             backgroundImage: `linear-gradient(rgba(34,211,238,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(34,211,238,0.5) 1px, transparent 1px)`,
             backgroundSize: "60px 60px",
-            maskImage:
-              "radial-gradient(ellipse 80% 60% at 50% 30%, black 40%, transparent 100%)",
-            WebkitMaskImage:
-              "radial-gradient(ellipse 80% 60% at 50% 30%, black 40%, transparent 100%)",
+            maskImage: "radial-gradient(ellipse 80% 60% at 50% 30%, black 40%, transparent 100%)",
+            WebkitMaskImage: "radial-gradient(ellipse 80% 60% at 50% 30%, black 40%, transparent 100%)",
           }}
         />
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-[var(--color-brand-500)]/15 rounded-full blur-[130px] pointer-events-none" />
@@ -111,9 +108,7 @@ const PortfolioPage = () => {
                 <span>{cat}</span>
                 <span
                   className={`text-[10px] px-1.5 py-0.5 rounded-full ${
-                    activeCategory === cat
-                      ? "bg-white/20"
-                      : "bg-white/[0.05]"
+                    activeCategory === cat ? "bg-white/20" : "bg-white/[0.05]"
                   }`}
                 >
                   {count}
@@ -124,11 +119,11 @@ const PortfolioPage = () => {
         </motion.div>
       </div>
 
-      {/* ============ PORTFOLIO GRID ============ */}
+      {/* ============ PORTFOLIO GRID — 4 cols on desktop ============ */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10">
         <motion.div
           layout
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5"
         >
           <AnimatePresence mode="popLayout">
             {filteredItems.map((item, i) => (
@@ -142,7 +137,6 @@ const PortfolioPage = () => {
           </AnimatePresence>
         </motion.div>
 
-        {/* Empty state */}
         {filteredItems.length === 0 && (
           <div className="text-center py-20">
             <p className="text-[var(--color-text-muted)]">
@@ -228,7 +222,7 @@ const PortfolioPage = () => {
   );
 };
 
-// ============ PORTFOLIO CARD ============
+// ============ PORTFOLIO CARD (Mobile Screenshot Optimized) ============
 const PortfolioCard = ({ item, index, onImageClick }) => {
   return (
     <motion.div
@@ -236,7 +230,7 @@ const PortfolioCard = ({ item, index, onImageClick }) => {
       initial={{ opacity: 0, y: 40, scale: 0.95 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       exit={{ opacity: 0, scale: 0.9 }}
-      transition={{ duration: 0.5, delay: (index % 3) * 0.1 }}
+      transition={{ duration: 0.5, delay: (index % 4) * 0.08 }}
       whileHover={{ y: -5 }}
       className="group relative rounded-2xl bg-white/[0.02] border border-white/[0.06] backdrop-blur-xl hover:border-[var(--color-brand-400)]/40 hover:bg-white/[0.04] transition-all duration-500 overflow-hidden flex flex-col"
     >
@@ -245,15 +239,17 @@ const PortfolioCard = ({ item, index, onImageClick }) => {
         className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-[0.08] transition-opacity duration-500 pointer-events-none`}
       />
 
-      {/* ============ IMAGE — FULL VISIBLE ============ */}
+      {/* ============ IMAGE — Mobile Screenshot Container ============ */}
       <button
         onClick={onImageClick}
-        className="relative w-full bg-black/40 overflow-hidden cursor-zoom-in"
+        className="relative w-full bg-gradient-to-br from-black/60 to-black/30 overflow-hidden cursor-zoom-in flex items-center justify-center p-4"
+        style={{ minHeight: "320px" }}
       >
+        {/* Image with max-height to prevent stretching */}
         <img
           src={item.image}
           alt={item.title}
-          className="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-700"
+          className="max-h-[300px] w-auto object-contain rounded-lg shadow-2xl group-hover:scale-105 transition-transform duration-700"
         />
 
         {/* Category badge */}
@@ -270,48 +266,59 @@ const PortfolioCard = ({ item, index, onImageClick }) => {
       </button>
 
       {/* ============ CONTENT ============ */}
-      <div className="relative p-5 flex flex-col flex-1">
+      <div className="relative p-4 flex flex-col flex-1">
         {/* Client name */}
-        <p className="text-[10px] uppercase tracking-[0.2em] text-[var(--color-brand-400)] font-bold mb-2">
+        <p className="text-[9px] uppercase tracking-[0.2em] text-[var(--color-brand-400)] font-bold mb-2">
           {item.client}
         </p>
 
         {/* Title */}
-        <h3 className="text-lg md:text-xl font-bold text-white mb-3 leading-tight">
-          {item.title}
-        </h3>
+        <Link to={`/portfolio/${item.slug}`}>
+          <h3 className="text-base font-bold text-white mb-3 leading-tight hover:text-[var(--color-brand-400)] transition-colors line-clamp-2 min-h-[2.75rem]">
+            {item.title}
+          </h3>
+        </Link>
 
-        {/* Stats */}
-        <div className="grid grid-cols-3 gap-2 mb-4">
-          {item.stats.map((stat, i) => (
+        {/* Stats — Compact 2 columns */}
+        <div className="grid grid-cols-2 gap-1.5 mb-3">
+          {item.stats.slice(0, 2).map((stat, i) => (
             <div
               key={i}
-              className="p-2.5 rounded-xl bg-white/[0.03] border border-white/[0.06] text-center"
+              className="p-2 rounded-lg bg-white/[0.03] border border-white/[0.06] text-center"
             >
-              <p className="text-sm md:text-base font-bold text-white leading-tight">
+              <p className="text-xs font-bold text-white leading-tight">
                 {stat.value}
               </p>
-              <p className="text-[9px] uppercase tracking-wider text-[var(--color-text-muted)] mt-0.5">
+              <p className="text-[8px] uppercase tracking-wider text-[var(--color-text-muted)] mt-0.5">
                 {stat.label}
               </p>
             </div>
           ))}
         </div>
 
-        {/* Description */}
-        <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed flex-1">
-          {item.description}
-        </p>
-
         {/* Keyword pill (for Local SEO) */}
         {item.keyword && (
-          <div className="mt-4 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/[0.03] border border-[var(--color-brand-400)]/20 self-start">
-            <Search size={10} className="text-[var(--color-brand-400)]" />
-            <span className="text-[11px] text-white font-medium italic">
+          <div className="mb-3 inline-flex items-center gap-1 px-2 py-1 rounded-full bg-white/[0.03] border border-[var(--color-brand-400)]/20 self-start">
+            <Search size={9} className="text-[var(--color-brand-400)]" />
+            <span className="text-[10px] text-white font-medium italic line-clamp-1">
               "{item.keyword}"
             </span>
           </div>
         )}
+
+        {/* View Case Study Button */}
+        <Link
+          to={`/portfolio/${item.slug}`}
+          className="mt-auto group/btn inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-full bg-white/[0.03] border border-white/[0.08] hover:border-[var(--color-brand-400)]/50 hover:bg-white/[0.05] transition-all duration-300"
+        >
+          <span className="text-white text-[11px] font-semibold">
+            View Case Study
+          </span>
+          <ArrowUpRight
+            size={11}
+            className="text-[var(--color-brand-400)] group-hover/btn:rotate-45 transition-transform duration-300"
+          />
+        </Link>
       </div>
 
       {/* Bottom shine */}

@@ -17,6 +17,10 @@ import ServicesPage from "./pages/ServicesPage";
 import ProductsPage from "./pages/ProductsPage";
 import ProductDetail from "./pages/ProductDetail";
 import PortdolioPage from "./pages/PortfolioPage";
+import BlogPage from "./pages/BlogPage";
+import PortfolioDetail from "./pages/PortfolioDetail";
+import BlogDetail from "./pages/BlogDetail";
+import ContactPage from "./pages/ContactPage";
 
 export default function App() {
   useEffect(() => {
@@ -44,7 +48,14 @@ export default function App() {
         <Route path="/services" element={<ServicesPage />} />
         <Route path="/products" element={<ProductsPage />} />
         <Route path="/products/:id" element={<ProductDetail />} />
+
         <Route path="/portfolio" element={<PortdolioPage />} />
+        <Route path="/portfolio/:slug" element={<PortfolioDetail />} />
+
+        <Route path="/blog" element={<BlogPage />} />
+        <Route path="/blog/:slug" element={<BlogDetail />} />
+
+        <Route path="/contact" element={<ContactPage />} />
 
 
 
