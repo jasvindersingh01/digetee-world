@@ -57,7 +57,6 @@ const ContactPage = () => {
     business: "",
     website: "",
     services: [],
-    budget: "",
     message: "",
   });
   const [status, setStatus] = useState("idle");
@@ -489,33 +488,6 @@ const ContactPage = () => {
                               >
                                 {service}
                               </span>
-                            </button>
-                          );
-                        })}
-                      </div>
-                    </div>
-
-                    {/* Budget */}
-                    <div>
-                      <label className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-[var(--color-text-muted)] font-semibold mb-3">
-                        <IndianRupee size={12} className="text-[var(--color-brand-400)]" />
-                        Estimated Budget
-                      </label>
-                      <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-                        {budgetOptions.map((budget) => {
-                          const isSelected = formData.budget === budget;
-                          return (
-                            <button
-                              key={budget}
-                              type="button"
-                              onClick={() => setFormData({ ...formData, budget })}
-                              className={`px-3 py-2 rounded-xl border text-xs font-medium transition-all duration-300 ${
-                                isSelected
-                                  ? "bg-[var(--color-brand-400)]/10 border-[var(--color-brand-400)]/50 text-white shadow-[0_0_15px_rgba(34,211,238,0.15)]"
-                                  : "bg-white/[0.03] border-white/[0.08] text-[var(--color-text-secondary)] hover:border-white/[0.15] hover:text-white"
-                              }`}
-                            >
-                              {budget}
                             </button>
                           );
                         })}

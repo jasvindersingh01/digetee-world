@@ -15,141 +15,24 @@ import {
 import { FaInstagram, FaWhatsapp, FaYoutube, FaGoogle } from "react-icons/fa";
 import { TbTargetArrow } from "react-icons/tb";
 
-// ============ DATA ============
-const services = [
-  {
-    id: 1,
-    number: "01",
-    icon: FaGoogle,
-    name: "Google Business Profile",
-    tagline: "GMB + Business Listing",
-    description:
-      "Complete Google Business Profile setup, optimization, posting, review strategy, and business listing management to improve local visibility and Google Maps rankings.",
-    gradient: "from-blue-500 to-cyan-400",
-    slug: "gmb-optimization",
-  },
-  {
-    id: 2,
-    number: "02",
-    icon: Globe,
-    name: "Website Development",
-    tagline: "Landing • Basic • Pro • E-commerce",
-    description:
-      "Custom websites built for performance and conversion — from landing pages and basic websites to professional business sites and full e-commerce stores.",
-    gradient: "from-cyan-400 to-teal-400",
-    slug: "website-development",
-  },
-  {
-    id: 3,
-    number: "03",
-    icon: FaInstagram,
-    name: "Social Media Marketing",
-    tagline: "Content • Growth • Branding",
-    description:
-      "Strategic social media management for Instagram, Facebook, and LinkedIn with content planning, creatives, posting, and brand growth.",
-    gradient: "from-pink-500 to-rose-400",
-    slug: "social-media-marketing",
-  },
-  {
-    id: 4,
-    number: "04",
-    icon: FaWhatsapp,
-    name: "WhatsApp Marketing",
-    tagline: "Instant Customer Reach",
-    description:
-      "Reach your audience directly with WhatsApp campaigns, catalog setup, broadcasts, automation flows, and customer engagement systems.",
-    gradient: "from-green-500 to-emerald-400",
-    slug: "whatsapp-marketing",
-  },
-  {
-    id: 5,
-    number: "05",
-    icon: TbTargetArrow,
-    name: "Google & Meta Ads",
-    tagline: "Paid Campaigns That Convert",
-    description:
-      "Performance-focused ad campaigns across Google, Facebook, and Instagram designed to generate leads, sales, and measurable ROI.",
-    gradient: "from-orange-500 to-amber-400",
-    slug: "google-meta-ads",
-  },
-  {
-    id: 6,
-    number: "06",
-    icon: FaYoutube,
-    name: "YouTube Marketing",
-    tagline: "Video Visibility & Growth",
-    description:
-      "YouTube strategy, video optimization, channel branding, and ad support to help businesses grow through video content and reach.",
-    gradient: "from-red-500 to-pink-500",
-    slug: "youtube-marketing",
-  },
-  {
-    id: 7,
-    number: "07",
-    icon: CreditCard,
-    name: "Digital Business Card",
-    tagline: "Smart Networking",
-    description:
-      "Modern digital business cards with contact details, social links, maps, website access, and brand identity — all in one shareable format.",
-    gradient: "from-violet-500 to-purple-500",
-    slug: "digital-business-card",
-  },
-  {
-    id: 8,
-    number: "08",
-    icon: Search,
-    name: "Search Engine Optimization",
-    tagline: "Rank Higher Organically",
-    description:
-      "SEO strategies including on-page, local, technical, and keyword optimization to improve search rankings and attract quality traffic.",
-    gradient: "from-indigo-500 to-blue-500",
-    slug: "seo-services",
-  },
-  {
-    id: 9,
-    number: "09",
-    icon: Bot,
-    name: "AI Chatbot",
-    tagline: "24/7 Smart Customer Support",
-    description:
-      "Intelligent AI chatbots for websites, WhatsApp, and social media that answer queries, capture leads, and support customers round the clock.",
-    gradient: "from-fuchsia-500 to-pink-500",
-    slug: "ai-chatbot",
-  },
-  {
-    id: 10,
-    number: "10",
-    icon: PhoneCall,
-    name: "AI Call Agent",
-    tagline: "Automated Voice Conversations",
-    description:
-      "AI-powered voice agents that handle inbound calls, qualify leads, book appointments, and provide human-like responses in multiple languages.",
-    gradient: "from-purple-500 to-indigo-500",
-    slug: "ai-call-agent",
-  },
-  {
-    id: 11,
-    number: "11",
-    icon: CalendarCheck,
-    name: "Appointment Booking Tool",
-    tagline: "Automated Scheduling System",
-    description:
-      "Smart appointment booking systems integrated with your website, WhatsApp, and GMB — with reminders, confirmations, and calendar sync.",
-    gradient: "from-teal-500 to-cyan-500",
-    slug: "appointment-booking-tool",
-  },
-  {
-    id: 12,
-    number: "12",
-    icon: BrainCircuit,
-    name: "AI Business Tools",
-    tagline: "Automation • Insights • Growth",
-    description:
-      "Custom AI-powered business tools for automation, content generation, data analysis, and workflow optimization tailored to your business needs.",
-    gradient: "from-yellow-500 to-orange-500",
-    slug: "ai-business-tools",
-  },
-];
+import { servicesData } from "../../constants/services";
+
+// ============ ICON MAP ============
+// Map slug → icon (since we can't store components in constants easily)
+const iconMap = {
+  "gmb-optimization": FaGoogle,
+  "website-development": Globe,
+  "social-media-marketing": FaInstagram,
+  "whatsapp-marketing": FaWhatsapp,
+  "google-meta-ads": TbTargetArrow,
+  "youtube-marketing": FaYoutube,
+  "digital-business-card": CreditCard,
+  "seo-services": Search,
+  "ai-chatbot": Bot,
+  "ai-call-agent": PhoneCall,
+  "appointment-booking-tool": CalendarCheck,
+  "ai-business-tools": BrainCircuit,
+};
 
 // ============ COMPONENT ============
 const Services = () => {
@@ -220,9 +103,9 @@ const Services = () => {
           </Link>
         </motion.div>
 
-        {/* Services Grid */}
+        {/* Services Grid — Using data from services.js */}
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-5">
-          {services.map((service, index) => (
+          {servicesData.map((service, index) => (
             <ServiceCard key={service.id} service={service} index={index} />
           ))}
         </div>
@@ -271,7 +154,7 @@ const Services = () => {
 
 // ============ CARD ============
 const ServiceCard = ({ service, index }) => {
-  const Icon = service.icon;
+  const Icon = iconMap[service.slug];
 
   return (
     <motion.div
@@ -307,7 +190,7 @@ const ServiceCard = ({ service, index }) => {
           <div
             className={`inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-gradient-to-br ${service.gradient} shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500`}
           >
-            <Icon size={22} className="text-white" />
+            {Icon && <Icon size={22} className="text-white" />}
           </div>
         </div>
 
@@ -321,7 +204,7 @@ const ServiceCard = ({ service, index }) => {
           </p>
 
           <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed flex-1">
-            {service.description}
+            {service.shortDesc}
           </p>
         </div>
 

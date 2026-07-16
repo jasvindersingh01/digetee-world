@@ -21,6 +21,7 @@ import BlogPage from "./pages/BlogPage";
 import PortfolioDetail from "./pages/PortfolioDetail";
 import BlogDetail from "./pages/BlogDetail";
 import ContactPage from "./pages/ContactPage";
+import ServiceDetail from "./pages/ServiceDetail";
 
 export default function App() {
   useEffect(() => {
@@ -46,6 +47,8 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/services" element={<ServicesPage />} />
+        <Route path="/services/:slug" element={<ServiceDetail />} />
+
         <Route path="/products" element={<ProductsPage />} />
         <Route path="/products/:id" element={<ProductDetail />} />
 
