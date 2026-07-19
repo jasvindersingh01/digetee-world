@@ -1,16 +1,26 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
-import { Menu, X, ArrowUpRight, Mail, Phone, MapPin, Sparkles } from "lucide-react";
+import {
+  Menu,
+  X,
+  ArrowUpRight,
+  Mail,
+  Phone,
+  Sparkles,
+  ChevronDown,
+} from "lucide-react";
 import { FaInstagram, FaLinkedinIn, FaFacebookF, FaYoutube } from "react-icons/fa";
 import { navLinks } from "../../constants/navLinks";
+import { servicesData } from "../../constants/services";
 import logo from "/logo.jpeg";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState(null);
-  const [time, setTime] = useState("");
+  const [servicesOpen, setServicesOpen] = useState(false); // Desktop dropdown
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false); // Mobile expandable
   const location = useLocation();
   const navRef = useRef(null);
 
@@ -22,40 +32,21 @@ const Navbar = () => {
     restDelta: 0.001,
   });
 
-  // Scroll detection
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 30);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Body scroll lock
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "auto";
   }, [menuOpen]);
 
-  // Close menu on route change
   useEffect(() => {
     setMenuOpen(false);
+    setServicesOpen(false);
+    setMobileServicesOpen(false);
   }, [location.pathname]);
-
-  // Live time (agency style)
-  useEffect(() => {
-    const updateTime = () => {
-      const now = new Date();
-      setTime(
-        now.toLocaleTimeString("en-IN", {
-          hour: "2-digit",
-          minute: "2-digit",
-          hour12: false,
-          timeZone: "Asia/Kolkata",
-        })
-      );
-    };
-    updateTime();
-    const interval = setInterval(updateTime, 1000);
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <>
@@ -71,17 +62,13 @@ const Navbar = () => {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-        className={`fixed top-0 left-0 w-full z-[100] transition-all duration-700 ${
-          scrolled ? "py-3" : "py-5"
-        }`}
-      >
-        {/* Glass background with animated gradient border */}
-        <div
-          className={`absolute inset-0 transition-all duration-700 ${
-            scrolled
-              ? "backdrop-blur-2xl bg-black/50"
-              : "bg-transparent"
+        className={`fixed top-0 left-0 w-full z-[100] transition-all duration-700 ${scrolled ? "py-3" : "py-5"
           }`}
+      >
+        {/* Glass background */}
+        <div
+          className={`absolute inset-0 transition-all duration-700 ${scrolled ? "backdrop-blur-2xl bg-black/50" : "bg-transparent"
+            }`}
         >
           {scrolled && (
             <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[var(--color-brand-400)]/50 to-transparent" />
@@ -89,8 +76,7 @@ const Navbar = () => {
         </div>
 
         <nav className="relative max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between">
-          
-          {/* LOGO with glow pulse */}
+          {/* LOGO */}
           <Link to="/" className="flex items-center gap-2.5 group relative z-10">
             <div className="relative">
               <div className="absolute inset-0 bg-[var(--color-brand-400)] blur-xl opacity-40 group-hover:opacity-70 transition-opacity duration-500 animate-pulse" />
@@ -102,20 +88,166 @@ const Navbar = () => {
             </div>
           </Link>
 
-          {/* DESKTOP NAV — Liquid blob indicator */}
+          {/* DESKTOP NAV */}
           <ul
             className="hidden lg:flex items-center bg-white/[0.03] border border-white/[0.06] backdrop-blur-xl rounded-full p-1.5 relative"
             onMouseLeave={() => setHoveredIndex(null)}
           >
             {navLinks.map((link, i) => {
-              const isActive = location.pathname === link.path;
+              const isActive = location.pathname === link.path ||
+                (link.hasDropdown && location.pathname.startsWith(link.path));
+
+              // ============ SERVICES with DROPDOWN ============
+              // ============ SERVICES with DROPDOWN ============
+              if (link.hasDropdown) {
+                return (
+                  <li
+                    key={link.name}
+                    className="relative"
+                    onMouseEnter={() => {
+                      setHoveredIndex(i);
+                      setServicesOpen(true);
+                    }}
+                    onMouseLeave={() => {
+                      setServicesOpen(false);
+                    }}
+                  >
+                    {hoveredIndex === i && (
+                      <motion.div
+                        layoutId="navBlob"
+                        className="absolute inset-0 bg-gradient-to-r from-[var(--color-brand-600)]/30 to-[var(--color-brand-400)]/30 rounded-full border border-[var(--color-brand-400)]/30"
+                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                      />
+                    )}
+
+                    <Link
+                      to={link.path}
+                      className={`relative z-10 flex items-center gap-1.5 px-5 py-2 text-sm font-medium rounded-full transition-colors duration-300 ${isActive
+                          ? "text-white"
+                          : "text-[var(--color-text-secondary)] hover:text-white"
+                        }`}
+                    >
+                      {isActive && (
+                        <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-brand-400)] shadow-[0_0_10px_var(--color-brand-400)] animate-pulse" />
+                      )}
+                      {link.name}
+                      <ChevronDown
+                        size={14}
+                        className={`transition-transform duration-300 ${servicesOpen ? "rotate-180" : ""
+                          }`}
+                      />
+                    </Link>
+
+                    {/* ============ MEGA DROPDOWN ============ */}
+                    <AnimatePresence>
+                      {servicesOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 15, scale: 0.95 }}
+                          animate={{ opacity: 1, y: 0, scale: 1 }}
+                          exit={{ opacity: 0, y: 15, scale: 0.95 }}
+                          transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+                          className="absolute top-full left-1/2 -translate-x-1/2 w-[720px] pt-4"
+                        >
+                          {/* 🔥 INVISIBLE BRIDGE — extends hover area */}
+                          <div className="absolute -top-2 left-0 right-0 h-6 bg-transparent" />
+
+                          <div className="relative rounded-3xl bg-black/90 backdrop-blur-2xl border border-white/[0.08] shadow-[0_20px_60px_rgba(0,0,0,0.6)] overflow-hidden">
+                            {/* Glow */}
+                            <div className="absolute top-0 right-0 w-64 h-64 bg-[var(--color-brand-500)]/15 rounded-full blur-[80px] pointer-events-none" />
+                            <div className="absolute bottom-0 left-0 w-64 h-64 bg-[var(--color-accent-neon)]/10 rounded-full blur-[80px] pointer-events-none" />
+
+                            <div className="relative p-6">
+                              {/* Header */}
+                              <div className="flex items-center justify-between mb-5 pb-4 border-b border-white/[0.06]">
+                                <div>
+                                  <p className="text-[10px] uppercase tracking-[0.3em] text-[var(--color-brand-400)] font-bold mb-1">
+                                    Our Services
+                                  </p>
+                                  <p className="text-sm text-[var(--color-text-secondary)]">
+                                    12 services to grow your business
+                                  </p>
+                                </div>
+                                <Link
+                                  to="/services"
+                                  className="group/all inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/[0.05] border border-white/[0.08] hover:border-[var(--color-brand-400)]/40 transition-all"
+                                >
+                                  <span className="text-xs text-white font-medium">
+                                    View All
+                                  </span>
+                                  <ArrowUpRight
+                                    size={12}
+                                    className="text-[var(--color-brand-400)] group-hover/all:rotate-45 transition-transform"
+                                  />
+                                </Link>
+                              </div>
+
+                              {/* Services Grid - 3 columns */}
+                              <div className="grid grid-cols-3 gap-2">
+                                {servicesData.map((service) => (
+                                  <Link
+                                    key={service.id}
+                                    to={`/services/${service.slug}`}
+                                    className="group/item relative p-3 rounded-xl hover:bg-white/[0.05] transition-all duration-300 border border-transparent hover:border-white/[0.06]"
+                                  >
+                                    <div className="flex items-start gap-2.5">
+                                      <div
+                                        className={`w-8 h-8 rounded-lg bg-gradient-to-br ${service.gradient} flex items-center justify-center flex-shrink-0 shadow-md group-hover/item:scale-110 transition-transform`}
+                                      >
+                                        <span className="text-[10px] font-bold text-white">
+                                          {service.number}
+                                        </span>
+                                      </div>
+
+                                      <div className="flex-1 min-w-0">
+                                        <p className="text-xs font-semibold text-white leading-tight mb-0.5 line-clamp-1 group-hover/item:text-[var(--color-brand-400)] transition-colors">
+                                          {service.name}
+                                        </p>
+                                        <p className="text-[10px] text-[var(--color-text-muted)] line-clamp-1">
+                                          {service.tagline}
+                                        </p>
+                                      </div>
+
+                                      <ArrowUpRight
+                                        size={12}
+                                        className="text-[var(--color-text-muted)] group-hover/item:text-[var(--color-brand-400)] group-hover/item:rotate-45 transition-all flex-shrink-0"
+                                      />
+                                    </div>
+                                  </Link>
+                                ))}
+                              </div>
+
+                              {/* Bottom CTA */}
+                              <div className="mt-5 pt-4 border-t border-white/[0.06] flex items-center justify-between">
+                                <p className="text-xs text-[var(--color-text-muted)]">
+                                  Need a custom package?
+                                </p>
+                                <Link
+                                  to="/contact"
+                                  className="group/cta inline-flex items-center gap-1.5 text-xs text-[var(--color-brand-400)] font-semibold hover:gap-2 transition-all"
+                                >
+                                  Book Free Consultation
+                                  <ArrowUpRight
+                                    size={12}
+                                    className="group-hover/cta:rotate-45 transition-transform"
+                                  />
+                                </Link>
+                              </div>
+                            </div>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </li>
+                );
+              }
+
+              // ============ REGULAR LINKS ============
               return (
                 <li
                   key={link.name}
                   className="relative"
                   onMouseEnter={() => setHoveredIndex(i)}
                 >
-                  {/* Liquid blob hover */}
                   {hoveredIndex === i && (
                     <motion.div
                       layoutId="navBlob"
@@ -125,11 +257,10 @@ const Navbar = () => {
                   )}
                   <NavLink
                     to={link.path}
-                    className={`relative z-10 flex items-center gap-1.5 px-5 py-2 text-sm font-medium rounded-full transition-colors duration-300 ${
-                      isActive
+                    className={`relative z-10 flex items-center gap-1.5 px-5 py-2 text-sm font-medium rounded-full transition-colors duration-300 ${isActive
                         ? "text-white"
                         : "text-[var(--color-text-secondary)] hover:text-white"
-                    }`}
+                      }`}
                   >
                     {isActive && (
                       <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-brand-400)] shadow-[0_0_10px_var(--color-brand-400)] animate-pulse" />
@@ -141,10 +272,8 @@ const Navbar = () => {
             })}
           </ul>
 
-          {/* RIGHT SIDE — Time + CTA + Menu */}
+          {/* RIGHT SIDE */}
           <div className="flex items-center gap-3 relative z-10">
-
-            {/* CTA Button - Premium */}
             <Link
               to="/contact"
               className="hidden md:flex group relative items-center gap-2 pl-5 pr-1.5 py-1.5 rounded-full bg-white/[0.03] border border-white/[0.08] hover:border-[var(--color-brand-400)]/50 transition-all duration-500 overflow-hidden"
@@ -158,7 +287,6 @@ const Navbar = () => {
                   className="text-white transition-transform duration-500 group-hover:rotate-45"
                 />
               </span>
-              {/* Shine effect */}
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
             </Link>
 
@@ -206,7 +334,6 @@ const Navbar = () => {
             transition={{ duration: 0.3 }}
             className="fixed inset-0 z-[99] lg:hidden"
           >
-            {/* Backdrop with grid pattern */}
             <motion.div
               initial={{ clipPath: "circle(0% at 100% 0%)" }}
               animate={{ clipPath: "circle(150% at 100% 0%)" }}
@@ -214,11 +341,11 @@ const Navbar = () => {
               transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
               className="absolute inset-0 bg-[var(--color-bg-primary)]"
             >
-              {/* Animated gradient orbs */}
               <div className="absolute top-20 right-10 w-96 h-96 bg-[var(--color-brand-500)]/20 rounded-full blur-[120px] animate-pulse" />
-              <div className="absolute bottom-20 left-10 w-96 h-96 bg-[var(--color-accent-neon)]/15 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: "1s" }} />
-              
-              {/* Grid pattern */}
+              <div
+                className="absolute bottom-20 left-10 w-96 h-96 bg-[var(--color-accent-neon)]/15 rounded-full blur-[120px] animate-pulse"
+                style={{ animationDelay: "1s" }}
+              />
               <div
                 className="absolute inset-0 opacity-[0.03]"
                 style={{
@@ -228,10 +355,7 @@ const Navbar = () => {
               />
             </motion.div>
 
-            {/* Content */}
             <div className="relative h-full flex flex-col px-6 pt-24 pb-8 overflow-y-auto">
-              
-              {/* Tagline */}
               <motion.div
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
@@ -247,7 +371,127 @@ const Navbar = () => {
               {/* NAV LINKS */}
               <ul className="flex flex-col gap-1 flex-1">
                 {navLinks.map((link, i) => {
-                  const isActive = location.pathname === link.path;
+                  const isActive = location.pathname === link.path ||
+                    (link.hasDropdown && location.pathname.startsWith(link.path));
+
+                  // ============ MOBILE SERVICES DROPDOWN ============
+                  if (link.hasDropdown) {
+                    return (
+                      <motion.li
+                        key={link.name}
+                        initial={{ x: 60, opacity: 0 }}
+                        animate={{ x: 0, opacity: 1 }}
+                        exit={{ x: 60, opacity: 0 }}
+                        transition={{
+                          delay: 0.4 + i * 0.08,
+                          duration: 0.5,
+                          ease: [0.22, 1, 0.36, 1],
+                        }}
+                      >
+                        {/* Services main button */}
+                        <button
+                          onClick={() =>
+                            setMobileServicesOpen(!mobileServicesOpen)
+                          }
+                          className={`group w-full flex items-center justify-between py-5 border-b transition-all duration-500 ${isActive || mobileServicesOpen
+                              ? "border-[var(--color-brand-400)]/40"
+                              : "border-white/[0.06]"
+                            }`}
+                        >
+                          <div className="flex items-baseline gap-4">
+                            <span className="text-xs font-mono text-[var(--color-brand-400)]">
+                              0{i + 1}
+                            </span>
+                            <div className="flex flex-col items-start">
+                              <span
+                                className={`text-3xl sm:text-4xl font-bold tracking-tight transition-all duration-500 ${isActive || mobileServicesOpen
+                                    ? "text-transparent bg-clip-text bg-gradient-to-r from-white to-[var(--color-brand-400)]"
+                                    : "text-white"
+                                  }`}
+                              >
+                                {link.name}
+                              </span>
+                              <span className="text-xs text-[var(--color-text-muted)] tracking-wider">
+                                12 services available
+                              </span>
+                            </div>
+                          </div>
+                          <ChevronDown
+                            size={24}
+                            className={`transition-all duration-500 ${mobileServicesOpen
+                                ? "text-[var(--color-brand-400)] rotate-180"
+                                : "text-[var(--color-text-muted)]"
+                              }`}
+                          />
+                        </button>
+
+                        {/* Mobile Services Sub-menu */}
+                        <AnimatePresence>
+                          {mobileServicesOpen && (
+                            <motion.div
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: "auto", opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
+                              transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                              className="overflow-hidden"
+                            >
+                              <div className="py-3 space-y-1">
+                                {/* View All */}
+                                <Link
+                                  to="/services"
+                                  className="flex items-center justify-between p-3 rounded-xl bg-[var(--color-brand-400)]/10 border border-[var(--color-brand-400)]/30 hover:bg-[var(--color-brand-400)]/20 transition-all"
+                                >
+                                  <div className="flex items-center gap-3">
+                                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[var(--color-brand-500)] to-[var(--color-brand-400)] flex items-center justify-center">
+                                      <Sparkles size={14} className="text-white" />
+                                    </div>
+                                    <span className="text-sm text-white font-semibold">
+                                      View All Services
+                                    </span>
+                                  </div>
+                                  <ArrowUpRight
+                                    size={14}
+                                    className="text-[var(--color-brand-400)]"
+                                  />
+                                </Link>
+
+                                {/* Services list */}
+                                {servicesData.map((service) => (
+                                  <Link
+                                    key={service.id}
+                                    to={`/services/${service.slug}`}
+                                    className="flex items-center gap-3 p-3 rounded-xl hover:bg-white/[0.04] transition-all group/service"
+                                  >
+                                    <div
+                                      className={`w-7 h-7 rounded-lg bg-gradient-to-br ${service.gradient} flex items-center justify-center flex-shrink-0`}
+                                    >
+                                      <span className="text-[9px] font-bold text-white">
+                                        {service.number}
+                                      </span>
+                                    </div>
+                                    <div className="flex-1 min-w-0">
+                                      <p className="text-sm text-white font-medium leading-tight">
+                                        {service.name}
+                                      </p>
+                                      <p className="text-[10px] text-[var(--color-text-muted)] line-clamp-1">
+                                        {service.tagline}
+                                      </p>
+                                    </div>
+                                    <ArrowUpRight
+                                      size={12}
+                                      className="text-[var(--color-text-muted)] group-hover/service:text-[var(--color-brand-400)] group-hover/service:rotate-45 transition-all flex-shrink-0"
+                                    />
+                                  </Link>
+                                ))}
+                              </div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </motion.li>
+                    );
+                  }
+
+                  // ============ REGULAR MOBILE LINKS ============
                   return (
                     <motion.li
                       key={link.name}
@@ -262,11 +506,10 @@ const Navbar = () => {
                     >
                       <NavLink
                         to={link.path}
-                        className={`group flex items-center justify-between py-5 border-b transition-all duration-500 ${
-                          isActive
+                        className={`group flex items-center justify-between py-5 border-b transition-all duration-500 ${isActive
                             ? "border-[var(--color-brand-400)]/40"
                             : "border-white/[0.06] hover:border-[var(--color-brand-400)]/30"
-                        }`}
+                          }`}
                       >
                         <div className="flex items-baseline gap-4">
                           <span className="text-xs font-mono text-[var(--color-brand-400)]">
@@ -274,26 +517,21 @@ const Navbar = () => {
                           </span>
                           <div className="flex flex-col">
                             <span
-                              className={`text-3xl sm:text-4xl font-bold tracking-tight transition-all duration-500 ${
-                                isActive
+                              className={`text-3xl sm:text-4xl font-bold tracking-tight transition-all duration-500 ${isActive
                                   ? "text-transparent bg-clip-text bg-gradient-to-r from-white to-[var(--color-brand-400)]"
                                   : "text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-[var(--color-brand-400)]"
-                              }`}
+                                }`}
                             >
                               {link.name}
-                            </span>
-                            <span className="text-xs text-[var(--color-text-muted)] tracking-wider">
-                              {link.desc}
                             </span>
                           </div>
                         </div>
                         <ArrowUpRight
                           size={24}
-                          className={`transition-all duration-500 ${
-                            isActive
+                          className={`transition-all duration-500 ${isActive
                               ? "text-[var(--color-brand-400)] rotate-45"
                               : "text-[var(--color-text-muted)] group-hover:text-[var(--color-brand-400)] group-hover:rotate-45"
-                          }`}
+                            }`}
                         />
                       </NavLink>
                     </motion.li>
@@ -316,7 +554,6 @@ const Navbar = () => {
                   <span className="relative z-10 flex items-center justify-center w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm group-hover:bg-white/30 transition-all">
                     <ArrowUpRight size={18} className="group-hover:rotate-45 transition-transform" />
                   </span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
                 </Link>
               </motion.div>
 
@@ -335,19 +572,20 @@ const Navbar = () => {
                     <Mail size={14} className="text-[var(--color-brand-400)]" />
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-[10px] text-[var(--color-text-muted)] uppercase tracking-wider">Email</span>
+                    <span className="text-[10px] text-[var(--color-text-muted)] uppercase tracking-wider">
+                      Email
+                    </span>
                     <span className="text-sm text-white">hello@digiteeworld.com</span>
                   </div>
                 </a>
-                <a
-                  href="tel:+911234567890"
-                  className="flex items-center gap-3 group"
-                >
+                <a href="tel:+911234567890" className="flex items-center gap-3 group">
                   <div className="w-10 h-10 rounded-xl bg-white/[0.03] border border-white/[0.06] flex items-center justify-center group-hover:border-[var(--color-brand-400)]/50 group-hover:bg-[var(--color-brand-400)]/10 transition-all">
                     <Phone size={14} className="text-[var(--color-brand-400)]" />
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-[10px] text-[var(--color-text-muted)] uppercase tracking-wider">Phone</span>
+                    <span className="text-[10px] text-[var(--color-text-muted)] uppercase tracking-wider">
+                      Phone
+                    </span>
                     <span className="text-sm text-white">+91 12345 67890</span>
                   </div>
                 </a>
