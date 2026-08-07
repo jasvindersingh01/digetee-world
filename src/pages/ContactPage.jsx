@@ -24,6 +24,7 @@ import {
   FaLinkedinIn,
   FaFacebookF,
   FaYoutube,
+  FaTwitter,
 } from "react-icons/fa";
 
 // ============ SERVICES OPTIONS ============
@@ -188,23 +189,23 @@ const ContactPage = () => {
           <QuickCard
             icon={FaWhatsapp}
             label="WhatsApp"
-            value="+91 98765 43210"
-            href="https://wa.me/919876543210"
+            value="+91 72979 88805"
+            href="https://wa.me/917297988805"
             gradient="from-green-500 to-emerald-400"
             external
           />
           <QuickCard
             icon={Phone}
             label="Call Us"
-            value="+91 98765 43210"
-            href="tel:+919876543210"
+            value="+91 72979 88805"
+            href="tel:+917297988805"
             gradient="from-blue-500 to-cyan-400"
           />
           <QuickCard
             icon={Mail}
             label="Email"
-            value="hello@digiteeworld.com"
-            href="mailto:hello@digiteeworld.com"
+            value="info@digiteeworld.com"
+            href="mailto:info@digiteeworld.com"
             gradient="from-violet-500 to-purple-500"
           />
           <QuickCard
@@ -239,14 +240,14 @@ const ContactPage = () => {
                     type: "Head Office",
                     city: "Kota",
                     state: "Rajasthan",
-                    phone: "+91 98765 43210",
+                    phone: "+91 72979 88805",
                     isPrimary: true,
                   },
                   {
                     type: "Corporate Office",
                     city: "Indore",
                     state: "Madhya Pradesh",
-                    phone: "+91 98765 43211",
+                    phone: "+91 91164 09905",
                     isPrimary: false,
                   },
                 ].map((office, i) => (
@@ -288,11 +289,12 @@ const ContactPage = () => {
               </p>
               <div className="flex items-center gap-2">
                 {[
-                  { icon: FaInstagram, url: "#" },
-                  { icon: FaLinkedinIn, url: "#" },
-                  { icon: FaFacebookF, url: "#" },
-                  { icon: FaYoutube, url: "#" },
-                  { icon: FaWhatsapp, url: "https://wa.me/919876543210" },
+                  { icon: FaFacebookF, url: "https://www.facebook.com/share/1EWKK4uYUr/" },
+                  { icon: FaInstagram, url: "https://www.instagram.com/digitee_world" },
+                  { icon: FaYoutube, url: "https://youtube.com/@digiteeworld" },
+                  { icon: FaLinkedinIn, url: "https://in.linkedin.com/in/digitee-world-94523b418" },
+                  { icon: FaTwitter, url: "https://x.com/Digitee_World" },
+                  { icon: FaWhatsapp, url: "https://wa.me/917297988805" },
                 ].map((social, i) => {
                   const Icon = social.icon;
                   return (

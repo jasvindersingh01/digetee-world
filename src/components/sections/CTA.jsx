@@ -101,7 +101,7 @@ const CTA = () => {
             </Link>
 
             <a
-              href="https://wa.me/919876543210?text=Hi%20Digitee%20World,%20I'm%20interested%20in%20your%20services."
+              href="https://wa.me/917297988805?text=Hi%20Digitee%20World,%20I'm%20interested%20in%20your%20services."
               target="_blank"
               rel="noopener noreferrer"
               className="group flex items-center gap-3 px-6 py-3.5 rounded-full bg-white/[0.03] border border-white/[0.08] hover:border-green-500/40 hover:bg-green-500/5 transition-all duration-500"

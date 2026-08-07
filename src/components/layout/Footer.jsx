@@ -15,6 +15,7 @@ import {
   FaFacebookF,
   FaYoutube,
   FaWhatsapp,
+  FaTwitter,
 } from "react-icons/fa";
 import logo from "/logo.jpeg";
 
@@ -42,24 +43,25 @@ const locations = [
     type: "Head Office",
     city: "Kota",
     state: "Rajasthan",
-    phone: "+91 98765 43210",
-    email: "kota@digiteeworld.com",
+    phone: "+91 72979 88805",
+    email: "info@digiteeworld.com",
   },
   {
     type: "Corporate Office",
     city: "Indore",
     state: "Madhya Pradesh",
-    phone: "+91 98765 43211",
-    email: "indore@digiteeworld.com",
+    phone: "+91 91164 09905",
+    email: "digiteeworld@gmail.com",
   },
 ];
 
 const socialLinks = [
-  { icon: FaInstagram, url: "#", label: "Instagram" },
-  { icon: FaLinkedinIn, url: "#", label: "LinkedIn" },
-  { icon: FaFacebookF, url: "#", label: "Facebook" },
-  { icon: FaYoutube, url: "#", label: "YouTube" },
-  { icon: FaWhatsapp, url: "https://wa.me/919876543210", label: "WhatsApp" },
+  { icon: FaFacebookF, url: "https://www.facebook.com/share/1EWKK4uYUr/", label: "Facebook" },
+  { icon: FaInstagram, url: "https://www.instagram.com/digitee_world", label: "Instagram" },
+  { icon: FaYoutube, url: "https://youtube.com/@digiteeworld", label: "YouTube" },
+  { icon: FaLinkedinIn, url: "https://in.linkedin.com/in/digitee-world-94523b418", label: "LinkedIn" },
+  { icon: FaTwitter, url: "https://x.com/Digitee_World", label: "X / Twitter" },
+  { icon: FaWhatsapp, url: "https://wa.me/917297988805", label: "WhatsApp" },
 ];
 
 // ============ COMPONENT ============

@@ -2,21 +2,18 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import {
   ArrowUpRight,
-  ShoppingBag,
-  BookOpen,
   Cpu,
   Tag,
   Sparkles,
 } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
-import ProductSlider from "../components/products/ProductSlider";
-import { books, nfcProducts, getWhatsAppLink } from "../constants/products";
+import { nfcProducts, getWhatsAppLink } from "../constants/products";
 
 const ProductsPage = () => {
   return (
     <section className="relative w-full overflow-hidden bg-[var(--color-bg-primary)]">
-      {/* ============ FULL WIDTH HERO SLIDER ============ */}
-      <div className="relative w-full pt-24 md:pt-28">
+      {/* ============ PRODUCT HERO ============ */}
+      <div className="relative w-full pt-32 pb-16 md:pt-40 md:pb-24">
         {/* Grid background */}
         <div
           className="absolute inset-0 opacity-[0.05]"
@@ -30,50 +27,32 @@ const ProductsPage = () => {
           }}
         />
 
-        {/* Enhanced Slider */}
-        <ProductSlider />
+        <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-10 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.03] border border-white/[0.08] backdrop-blur-xl mb-6">
+              <Sparkles size={12} className="text-[var(--color-brand-400)] animate-pulse" />
+              <span className="text-xs uppercase tracking-[0.3em] text-[var(--color-text-secondary)]">
+                Our Shop
+              </span>
+            </div>
 
-        {/* Bottom Info Strip */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="relative z-10 max-w-5xl mx-auto px-6 lg:px-10 pb-12"
-        >
-          <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4">
-            {[
-              { label: "Expert Guidance", icon: "🎯" },
-              { label: "Practical Training", icon: "📚" },
-              { label: "Lifetime Value", icon: "💎" },
-              { label: "Instant Access", icon: "⚡" },
-            ].map((item, i) => (
-              <motion.div
-                key={item.label}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 + i * 0.1 }}
-                className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.03] border border-white/[0.08] backdrop-blur-xl hover:border-[var(--color-brand-400)]/30 hover:bg-white/[0.05] transition-all"
-              >
-                <span className="text-base">{item.icon}</span>
-                <span className="text-xs md:text-sm text-white font-medium">
-                  {item.label}
-                </span>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6">
+              Premium Smart{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-brand-500)] to-[var(--color-brand-400)]">
+                Networking Products
+              </span>
+            </h1>
+
+            <p className="max-w-2xl mx-auto text-base md:text-lg text-[var(--color-text-secondary)] leading-relaxed">
+              Explore our range of next-generation NFC and digital products built to make networking, reviews, and tech interactions seamless.
+            </p>
+          </motion.div>
+        </div>
       </div>
-
-      {/* ============ BOOKS SECTION (5 in a row) ============ */}
-      <ProductSection
-        subtitle="Books & Courses"
-        heading="Learn from"
-        headingHighlight="proven experts"
-        description="Comprehensive guides packed with real-world strategies to grow your business, master marketing, and achieve digital success."
-        icon={BookOpen}
-        products={books}
-        gridCols="grid-cols-2 md:grid-cols-3 lg:grid-cols-5"
-      />
 
       {/* ============ NFC PRODUCTS SECTION (4 in a row) ============ */}
       <ProductSection

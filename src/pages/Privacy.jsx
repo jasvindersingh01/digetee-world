@@ -244,34 +244,34 @@ const Privacy = () => {
 
                 {section.isContact && (
                   <div className="mt-5 space-y-3">
-                    <a
-                      href="mailto:hello@digiteeworld.com"
-                      className="flex items-center gap-3 group"
-                    >
+                    <div className="flex items-center gap-3 group">
                       <div className="w-9 h-9 rounded-lg bg-[var(--color-brand-400)]/10 border border-[var(--color-brand-400)]/20 flex items-center justify-center group-hover:bg-[var(--color-brand-400)]/20 transition-all">
-                        <Mail size={14} className="text-[var(--color-brand-400)]" />
+                         <Mail size={14} className="text-[var(--color-brand-400)]" />
                       </div>
                       <div>
-                        <p className="text-[10px] uppercase tracking-wider text-[var(--color-text-muted)]">Email</p>
-                        <p className="text-sm text-white group-hover:text-[var(--color-brand-400)] transition-colors">
-                          hello@digiteeworld.com
-                        </p>
+                         <p className="text-[10px] uppercase tracking-wider text-[var(--color-text-muted)]">Email</p>
+                         <a href="mailto:info@digiteeworld.com" className="block text-sm text-white hover:text-[var(--color-brand-400)] transition-colors">
+                          info@digiteeworld.com
+                         </a>
+                         <a href="mailto:digiteeworld@gmail.com" className="block text-sm text-white hover:text-[var(--color-brand-400)] transition-colors">
+                          digiteeworld@gmail.com
+                         </a>
                       </div>
-                    </a>
-                    <a
-                      href="tel:+919876543210"
-                      className="flex items-center gap-3 group"
-                    >
+                    </div>
+                    <div className="flex items-center gap-3 group">
                       <div className="w-9 h-9 rounded-lg bg-[var(--color-brand-400)]/10 border border-[var(--color-brand-400)]/20 flex items-center justify-center group-hover:bg-[var(--color-brand-400)]/20 transition-all">
-                        <Phone size={14} className="text-[var(--color-brand-400)]" />
+                         <Phone size={14} className="text-[var(--color-brand-400)]" />
                       </div>
                       <div>
-                        <p className="text-[10px] uppercase tracking-wider text-[var(--color-text-muted)]">Phone</p>
-                        <p className="text-sm text-white group-hover:text-[var(--color-brand-400)] transition-colors">
-                          +91 98765 43210
-                        </p>
+                         <p className="text-[10px] uppercase tracking-wider text-[var(--color-text-muted)]">Phone</p>
+                         <a href="tel:+917297988805" className="block text-sm text-white hover:text-[var(--color-brand-400)] transition-colors">
+                          +91 72979 88805
+                         </a>
+                         <a href="tel:+919116409905" className="block text-sm text-white hover:text-[var(--color-brand-400)] transition-colors">
+                          +91 91164 09905
+                         </a>
                       </div>
-                    </a>
+                    </div>
                   </div>
                 )}
               </div>

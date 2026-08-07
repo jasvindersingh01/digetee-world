@@ -10,7 +10,7 @@ import {
   Sparkles,
   ChevronDown,
 } from "lucide-react";
-import { FaInstagram, FaLinkedinIn, FaFacebookF, FaYoutube } from "react-icons/fa";
+import { FaInstagram, FaLinkedinIn, FaFacebookF, FaYoutube, FaTwitter } from "react-icons/fa";
 import { navLinks } from "../../constants/navLinks";
 import { servicesData } from "../../constants/services";
 import logo from "/logo.jpeg";
@@ -565,7 +565,7 @@ const Navbar = () => {
                 className="mt-8 pt-6 border-t border-white/[0.06] grid grid-cols-1 sm:grid-cols-2 gap-4"
               >
                 <a
-                  href="mailto:hello@digiteeworld.com"
+                  href="mailto:info@digiteeworld.com"
                   className="flex items-center gap-3 group"
                 >
                   <div className="w-10 h-10 rounded-xl bg-white/[0.03] border border-white/[0.06] flex items-center justify-center group-hover:border-[var(--color-brand-400)]/50 group-hover:bg-[var(--color-brand-400)]/10 transition-all">
@@ -575,10 +575,10 @@ const Navbar = () => {
                     <span className="text-[10px] text-[var(--color-text-muted)] uppercase tracking-wider">
                       Email
                     </span>
-                    <span className="text-sm text-white">hello@digiteeworld.com</span>
+                    <span className="text-sm text-white">info@digiteeworld.com</span>
                   </div>
                 </a>
-                <a href="tel:+911234567890" className="flex items-center gap-3 group">
+                <a href="tel:+917297988805" className="flex items-center gap-3 group">
                   <div className="w-10 h-10 rounded-xl bg-white/[0.03] border border-white/[0.06] flex items-center justify-center group-hover:border-[var(--color-brand-400)]/50 group-hover:bg-[var(--color-brand-400)]/10 transition-all">
                     <Phone size={14} className="text-[var(--color-brand-400)]" />
                   </div>
@@ -586,7 +586,7 @@ const Navbar = () => {
                     <span className="text-[10px] text-[var(--color-text-muted)] uppercase tracking-wider">
                       Phone
                     </span>
-                    <span className="text-sm text-white">+91 12345 67890</span>
+                    <span className="text-sm text-white">+91 72979 88805</span>
                   </div>
                 </a>
               </motion.div>
@@ -603,14 +603,17 @@ const Navbar = () => {
                 </span>
                 <div className="flex items-center gap-2">
                   {[
-                    { Icon: FaInstagram, link: "#" },
-                    { Icon: FaLinkedinIn, link: "#" },
-                    { Icon: FaFacebookF, link: "#" },
-                    { Icon: FaYoutube, link: "#" },
+                    { Icon: FaFacebookF, link: "https://www.facebook.com/share/1EWKK4uYUr/" },
+                    { Icon: FaInstagram, link: "https://www.instagram.com/digitee_world" },
+                    { Icon: FaYoutube, link: "https://youtube.com/@digiteeworld" },
+                    { Icon: FaLinkedinIn, link: "https://in.linkedin.com/in/digitee-world-94523b418" },
+                    { Icon: FaTwitter, link: "https://x.com/Digitee_World" },
                   ].map(({ Icon, link }, i) => (
                     <a
                       key={i}
                       href={link}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="w-10 h-10 rounded-full bg-white/[0.03] border border-white/[0.06] flex items-center justify-center text-white hover:bg-gradient-to-br hover:from-[var(--color-brand-500)] hover:to-[var(--color-brand-400)] hover:border-transparent hover:shadow-[0_0_20px_var(--color-brand-400)] transition-all duration-300"
                     >
                       <Icon size={13} />

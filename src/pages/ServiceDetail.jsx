@@ -113,7 +113,7 @@ const ServiceDetail = () => {
               </Link>
 
               <a
-                href={`https://wa.me/919876543210?text=Hi%20Digitee%20World,%20I'm%20interested%20in%20${encodeURIComponent(
+                href={`https://wa.me/917297988805?text=Hi%20Digitee%20World,%20I'm%20interested%20in%20${encodeURIComponent(
                   service.name
                 )}`}
                 target="_blank"
@@ -406,7 +406,7 @@ const ServiceDetail = () => {
               </Link>
 
               <a
-                href={`https://wa.me/919876543210?text=Hi%20Digitee%20World,%20I'm%20interested%20in%20${encodeURIComponent(
+                href={`https://wa.me/917297988805?text=Hi%20Digitee%20World,%20I'm%20interested%20in%20${encodeURIComponent(
                   service.name
                 )}`}
                 target="_blank"
