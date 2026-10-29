@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
+import SEO from "../components/common/SEO";
 import {
   Mail,
   Phone,
@@ -123,8 +124,29 @@ const ContactPage = () => {
     }
   };
 
+  const contactSchema = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact Us - Start Your Project | Digitee World",
+    "description": "Get in touch with our branches in Kota (Rajasthan) and Indore (Madhya Pradesh). Schedule a free business consultation call and power your business growth.",
+    "url": "https://digiteeworld.com/contact",
+    "mainEntity": {
+      "@type": "Organization",
+      "@id": "https://digiteeworld.com/#organization",
+      "name": "Digitee World",
+      "url": "https://digiteeworld.com/",
+      "logo": "https://digiteeworld.com/logo.jpeg"
+    }
+  };
+
   return (
     <section className="relative w-full overflow-hidden bg-[var(--color-bg-primary)] pt-28 pb-20 md:pt-32">
+      <SEO 
+        title="Contact Us - Start Your Project | Digitee World" 
+        description="Get in touch with our branches in Kota (Rajasthan) and Indore (Madhya Pradesh). Schedule a free business consultation call and power your business growth."
+        path="/contact"
+        schemaData={contactSchema}
+      />
       {/* ============ BACKGROUND EFFECTS ============ */}
       {/* Grid pattern */}
       <div
@@ -143,9 +165,9 @@ const ContactPage = () => {
 
       {/* ============ HUGE WATERMARK "CONTACT" ============ */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none z-0 overflow-hidden w-full flex items-center justify-center">
-        <h1 className="text-[20vw] md:text-[18vw] lg:text-[15rem] xl:text-[20rem] font-black leading-none tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white/[0.04] to-transparent whitespace-nowrap">
+        <div aria-hidden="true" className="text-[20vw] md:text-[18vw] lg:text-[15rem] xl:text-[20rem] font-black leading-none tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white/[0.04] to-transparent whitespace-nowrap">
           CONTACT
-        </h1>
+        </div>
       </div>
 
       {/* Floating icons in bg */}
@@ -270,7 +292,7 @@ const ContactPage = () => {
                         {office.city}, {office.state}
                       </p>
                       <a
-                        href={`tel:${office.phone}`}
+                        href={`tel:${office.phone.replace(/\s+/g, "")}`}
                         className="text-xs text-[var(--color-text-secondary)] hover:text-[var(--color-brand-400)] transition-colors flex items-center gap-1.5"
                       >
                         <Phone size={10} />

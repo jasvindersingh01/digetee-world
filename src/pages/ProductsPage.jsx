@@ -8,10 +8,16 @@ import {
 } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import { nfcProducts, getWhatsAppLink } from "../constants/products";
+import SEO from "../components/common/SEO";
 
 const ProductsPage = () => {
   return (
     <section className="relative w-full overflow-hidden bg-[var(--color-bg-primary)]">
+      <SEO 
+        title="NFC Business Cards & Smart Networking Products | Digitee World" 
+        description="Shop premium NFC smart products: NFC Business Cards, NFC Smart Rings, Digital Google Review Cards, and NFC Tap + QR Code cards. Modernize your networking."
+        path="/products"
+      />
       {/* ============ PRODUCT HERO ============ */}
       <div className="relative w-full pt-32 pb-16 md:pt-40 md:pb-24">
         {/* Grid background */}
@@ -144,6 +150,7 @@ const ProductCard = ({ product, index }) => {
         <img
           src={product.image}
           alt={product.name}
+          loading="lazy"
           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
         />
 

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
+import SEO from "../components/common/SEO";
 import {
   Sparkles,
   TrendingUp,
@@ -32,6 +33,11 @@ const PortfolioPage = () => {
 
   return (
     <section className="relative w-full overflow-hidden bg-[var(--color-bg-primary)] pb-20 md:pb-28">
+      <SEO 
+        title="Client Success Stories & Case Studies | Digitee World" 
+        description="Browse our portfolio of successful digital marketing campaigns, social media growth projects, website launches, and YouTube channel scaling."
+        path="/portfolio"
+      />
       {/* ============ HERO ============ */}
       <div className="relative w-full pt-32 pb-12 md:pt-40 md:pb-16">
         <div
@@ -249,6 +255,7 @@ const PortfolioCard = ({ item, index, onImageClick }) => {
         <img
           src={item.image}
           alt={item.title}
+          loading="lazy"
           className="max-h-[300px] w-auto object-contain rounded-lg shadow-2xl group-hover:scale-105 transition-transform duration-700"
         />
 

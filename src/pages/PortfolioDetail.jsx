@@ -20,6 +20,7 @@ import {
   getPortfolioBySlug,
   getRelatedProjects,
 } from "../constants/portfolio";
+import SEO from "../components/common/SEO";
 
 const PortfolioDetail = () => {
   const { slug } = useParams();
@@ -30,8 +31,32 @@ const PortfolioDetail = () => {
 
   const relatedProjects = getRelatedProjects(project.id, project.category, 3);
 
+  const portfolioSchema = {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": project.title,
+    "description": project.description,
+    "image": `https://digiteeworld.com${project.image}`,
+    "creator": {
+      "@type": "Organization",
+      "@id": "https://digiteeworld.com/#organization",
+      "name": "Digitee World",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://digiteeworld.com/logo.jpeg"
+      }
+    }
+  };
+
   return (
     <section className="relative w-full overflow-hidden bg-[var(--color-bg-primary)] pt-28 pb-16 md:pt-32">
+      <SEO 
+        title={`${project.title} - Case Study | Digitee World`}
+        description={project.description}
+        path={`/portfolio/${project.slug}`}
+        ogImage={project.image}
+        schemaData={portfolioSchema}
+      />
       {/* Background */}
       <div
         className="absolute inset-0 opacity-[0.04]"

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import SEO from "../components/common/SEO";
 import {
   Shield,
   Sparkles,
@@ -124,7 +125,12 @@ const Privacy = () => {
   ];
 
   return (
-    <section className="relative min-h-screen w-full overflow-hidden bg-[var(--color-bg-primary)] pt-32 pb-20">
+    <section className="relative w-full overflow-hidden bg-[var(--color-bg-primary)] pt-28 pb-20 md:pt-32">
+      <SEO 
+        title="Privacy Policy | Digitee World" 
+        description="Read the privacy policy of Digitee World. Learn how we handle your personal details and protect your privacy."
+        path="/privacy-policy"
+      />
       {/* Background */}
       <div
         className="absolute inset-0 opacity-[0.04]"

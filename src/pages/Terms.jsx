@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import SEO from "../components/common/SEO";
 import {
   FileText,
   ArrowLeft,
@@ -185,6 +186,11 @@ const Terms = () => {
 
   return (
     <section className="relative min-h-screen w-full overflow-hidden bg-[var(--color-bg-primary)] pt-32 pb-20">
+      <SEO 
+        title="Terms of Service | Digitee World" 
+        description="Terms of service and conditions for using the Digitee World website and digital marketing services."
+        path="/terms"
+      />
       {/* Background */}
       <div
         className="absolute inset-0 opacity-[0.04]"

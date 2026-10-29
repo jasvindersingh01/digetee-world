@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import { getServiceBySlug, getRelatedServices } from "../constants/services";
+import SEO from "../components/common/SEO";
 
 const ServiceDetail = () => {
   const { slug } = useParams();
@@ -22,8 +23,41 @@ const ServiceDetail = () => {
 
   const relatedServices = getRelatedServices(service.id, 3);
 
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": service.name,
+    "description": service.fullDesc || service.heroDesc,
+    "provider": {
+      "@type": "Organization",
+      "@id": "https://digiteeworld.com/#organization",
+      "name": "Digitee World",
+      "url": "https://digiteeworld.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://digiteeworld.com/logo.jpeg"
+      },
+      "telephone": [
+        "+91 72979 88805",
+        "+91 91164 09905"
+      ],
+      "email": [
+        "info@digiteeworld.com",
+        "digiteeworld@gmail.com"
+      ]
+    },
+    "serviceType": service.category,
+    "areaServed": ["Rajasthan", "Madhya Pradesh", "India"]
+  };
+
   return (
     <section className="relative w-full overflow-hidden bg-[var(--color-bg-primary)] pt-28 pb-20 md:pt-32">
+      <SEO 
+        title={`${service.name} Services | Digitee World`}
+        description={service.shortDesc || service.heroDesc}
+        path={`/services/${service.slug}`}
+        schemaData={serviceSchema}
+      />
       {/* Background */}
       <div
         className="absolute inset-0 opacity-[0.04]"

@@ -16,6 +16,7 @@ import {
   FaTwitter,
 } from "react-icons/fa";
 import { getPostBySlug, getRelatedPosts } from "../constants/blogs";
+import SEO from "../components/common/SEO";
 
 const BlogDetail = () => {
   const { slug } = useParams();
@@ -26,8 +27,51 @@ const BlogDetail = () => {
   const relatedPosts = getRelatedPosts(post.id, 2);
   const shareUrl = typeof window !== "undefined" ? window.location.href : "";
 
+  // Convert date format (e.g. Dec 15, 2024 to ISO) safely
+  let datePublished = new Date().toISOString();
+  if (post.date) {
+    try {
+      const parsedDate = new Date(post.date);
+      if (!isNaN(parsedDate.getTime())) {
+        datePublished = parsedDate.toISOString();
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
+  const blogSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": post.title,
+    "image": `https://digiteeworld.com${post.image}`,
+    "datePublished": datePublished,
+    "author": {
+      "@type": "Person",
+      "@id": "https://digiteeworld.com/#founder",
+      "name": post.author || "Chanchal Singh"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "@id": "https://digiteeworld.com/#organization",
+      "name": "Digitee World",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://digiteeworld.com/logo.jpeg"
+      }
+    },
+    "description": post.excerpt
+  };
+
   return (
     <article className="relative w-full overflow-hidden bg-[var(--color-bg-primary)] pt-28 pb-16 md:pt-32">
+      <SEO 
+        title={`${post.title} | Digitee World Blog`}
+        description={post.excerpt}
+        path={`/blog/${post.slug}`}
+        ogImage={post.image}
+        schemaData={blogSchema}
+      />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[500px] bg-[var(--color-brand-500)]/10 rounded-full blur-[130px] pointer-events-none" />
 
       <div className="relative z-10 max-w-3xl mx-auto px-6 lg:px-10">

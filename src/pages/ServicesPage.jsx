@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import SEO from "../components/common/SEO";
 import {
   ArrowUpRight,
   Sparkles,
@@ -36,6 +37,11 @@ const ServicesPage = () => {
 
   return (
     <section className="relative w-full overflow-hidden bg-[var(--color-bg-primary)]">
+      <SEO 
+        title="Professional Digital Marketing Services | Digitee World" 
+        description="Boost your online presence with our advanced digital marketing services, including Website Development, Local SEO, Social Media Marketing, WhatsApp Automation, and Paid Ad campaigns."
+        path="/services"
+      />
       {/* ============ HERO ============ */}
       <HeroSection />
 
@@ -237,6 +243,7 @@ const ServiceRow = ({ service, index }) => {
             <img
               src={service.image}
               alt={service.name}
+              loading="lazy"
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />

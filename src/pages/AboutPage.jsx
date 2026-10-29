@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import SEO from "../components/common/SEO";
 import {
     ArrowUpRight,
     Sparkles,
@@ -107,8 +108,29 @@ const certifications = [
 
 // ============ COMPONENT ============
 const AboutPage = () => {
+    const aboutSchema = {
+        "@context": "https://schema.org",
+        "@type": "AboutPage",
+        "name": "About Digitee World | Digital Marketing Agency Kota & Indore",
+        "description": "Founded in June 2022, Digitee World is an ISO 9001 certified digital marketing agency in Kota and Indore. Learn about our 'Physics of Business Growth' framework.",
+        "url": "https://digiteeworld.com/about",
+        "mainEntity": {
+            "@type": "Organization",
+            "@id": "https://digiteeworld.com/#organization",
+            "name": "Digitee World",
+            "url": "https://digiteeworld.com/",
+            "logo": "https://digiteeworld.com/logo.jpeg"
+        }
+    };
+
     return (
         <section className="relative w-full overflow-hidden bg-[var(--color-bg-primary)]">
+            <SEO 
+                title="About Digitee World | Digital Marketing Agency Kota & Indore" 
+                description="Founded in June 2022, Digitee World is an ISO 9001 certified digital marketing agency in Kota and Indore. Learn about our 'Physics of Business Growth' framework."
+                path="/about"
+                schemaData={aboutSchema}
+            />
             {/* ==================== HERO ==================== */}
             <HeroSection />
 

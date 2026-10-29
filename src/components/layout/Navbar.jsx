@@ -82,7 +82,7 @@ const Navbar = () => {
               <div className="absolute inset-0 bg-[var(--color-brand-400)] blur-xl opacity-40 group-hover:opacity-70 transition-opacity duration-500 animate-pulse" />
               <img
                 src={logo}
-                alt="Digitee World"
+                alt="Digitee World - AI-first digital marketing agency"
                 className="relative h-12 w-auto object-contain transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3"
               />
             </div>

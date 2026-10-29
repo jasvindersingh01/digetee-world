@@ -66,8 +66,8 @@ const Hero = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const headingLine1 = "Physics of";
-  const headingLine2 = "Business Growth";
+  const headingLine1 = "AI-First";
+  const headingLine2 = "Digital Marketing";
 
   const letterVariants = {
     hidden: { y: 100, opacity: 0 },
@@ -106,7 +106,7 @@ const Hero = () => {
       {/* Layout */}
       <motion.div
         style={{ y, opacity }}
-        className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-12 lg:gap-8 items-center min-h-[calc(100vh-16rem)]"
+        className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-[1.12fr_0.88fr] gap-12 lg:gap-8 items-center min-h-[calc(100vh-16rem)]"
       >
         {/* LEFT */}
         <div className="text-center lg:text-left">
@@ -132,41 +132,45 @@ const Hero = () => {
           </motion.div>
 
           {/* Heading */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-bold leading-[1] tracking-tight mb-6">
-            <div className="overflow-hidden">
-              <div className="flex lg:justify-start justify-center flex-wrap">
-                {headingLine1.split("").map((char, i) => (
-                  <motion.span
-                    key={`l1-${i}`}
-                    custom={i}
-                    variants={letterVariants}
-                    initial="hidden"
-                    animate="visible"
-                    className="inline-block text-white"
-                  >
-                    {char === " " ? "\u00A0" : char}
-                  </motion.span>
-                ))}
-              </div>
-            </div>
-            <div className="overflow-hidden mt-2">
-              <div className="flex lg:justify-start justify-center flex-wrap">
-                {headingLine2.split("").map((char, i) => (
-                  <motion.span
-                    key={`l2-${i}`}
-                    custom={i + headingLine1.length}
-                    variants={letterVariants}
-                    initial="hidden"
-                    animate="visible"
-                    className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-brand-500)] via-[var(--color-accent-neon)] to-[var(--color-brand-400)]"
-                  >
-                    {char === " " ? "\u00A0" : char}
-                  </motion.span>
-                ))}
-              </div>
-            </div>
-          </h1>
+        {/* Heading */}
+<h1 className="text-[8.5vw] sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-bold leading-none tracking-tight mb-6">
+  {/* Line 1 — AI-First */}
+  <div className="overflow-hidden px-6 -mx-6">
+    <div className="flex lg:justify-start justify-center flex-wrap pb-[0.12em]">
+      {headingLine1.split("").map((char, i) => (
+        <motion.span
+          key={`l1-${i}`}
+          custom={i}
+          variants={letterVariants}
+          initial="hidden"
+          animate="visible"
+          className="inline-block text-white"
+        >
+          {char === " " ? "\u00A0" : char}
+        </motion.span>
+      ))}
+    </div>
+  </div>
 
+  {/* Line 2 — Digital Marketing */}
+  <div className="overflow-hidden px-6 -mx-6 mt-1">
+    <div className="flex lg:justify-start justify-center flex-wrap pb-[0.3em]">
+      {headingLine2.split("").map((char, i) => (
+        <motion.span
+          key={`l2-${i}`}
+          custom={i + headingLine1.length}
+          variants={letterVariants}
+          initial="hidden"
+          animate="visible"
+          className="inline-block pb-[0.12em] text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-brand-500)] via-[var(--color-accent-neon)] to-[var(--color-brand-400)]"
+          style={{ WebkitBoxDecorationBreak: "clone", boxDecorationBreak: "clone" }}
+        >
+          {char === " " ? "\u00A0" : char}
+        </motion.span>
+      ))}
+    </div>
+  </div>
+</h1>
           {/* Subheading — UPDATED */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -174,10 +178,8 @@ const Hero = () => {
             transition={{ delay: 1.4, duration: 0.8 }}
             className="max-w-xl mx-auto lg:mx-0 text-base sm:text-lg text-[var(--color-text-secondary)] leading-relaxed mb-8"
           >
-            A full-service digital marketing company from{" "}
-            <span className="text-white font-semibold">Kota & Indore</span> —
-            helping <span className="text-white font-semibold">startups, local businesses, and brands</span>{" "}
-            grow with strategy, consistency, and data-driven action.
+            An AI-first digital marketing agency in{" "}
+            <span className="text-white font-semibold">Rajasthan & Indore</span>. We build websites, optimize SEO, manage Google Business Profiles (GMB), and run high-ROI search and social ads that drive real business growth.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -313,8 +315,8 @@ const Hero = () => {
                     <div
                       key={i}
                       className={`h-1 rounded-full transition-all duration-500 ${activeScreen === i
-                          ? "w-6 bg-[var(--color-brand-400)]"
-                          : "w-1.5 bg-white/30"
+                        ? "w-6 bg-[var(--color-brand-400)]"
+                        : "w-1.5 bg-white/30"
                         }`}
                     />
                   ))}

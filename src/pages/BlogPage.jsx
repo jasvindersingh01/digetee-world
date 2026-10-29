@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
+import SEO from "../components/common/SEO";
 import {
   Clock,
   Calendar,
@@ -27,6 +28,11 @@ const BlogPage = () => {
 
   return (
     <section className="relative w-full overflow-hidden bg-[var(--color-bg-primary)] pb-20 md:pb-28">
+      <SEO 
+        title="Digital Marketing & SEO Blog | Digitee World" 
+        description="Expert tips, guides, and insights on local SEO, website optimization, GMB rankings, and digital marketing trends to grow your business."
+        path="/blog"
+      />
       {/* ============ HERO ============ */}
       <div className="relative w-full pt-32 pb-12 md:pt-40 md:pb-16">
         <div
@@ -197,6 +203,7 @@ const BlogCard = ({ post, index }) => {
         <img
           src={post.image}
           alt={post.title}
+          loading="lazy"
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />

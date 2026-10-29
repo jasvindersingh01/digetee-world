@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import { getProductById, getWhatsAppLink } from "../constants/products";
+import SEO from "../components/common/SEO";
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -20,8 +21,36 @@ const ProductDetail = () => {
     return <Navigate to="/products" replace />;
   }
 
+  const productSchema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": product.name,
+    "image": `https://digiteeworld.com${product.image}`,
+    "description": product.fullDesc || product.shortDesc,
+    "offers": {
+      "@type": "Offer",
+      "url": `https://digiteeworld.com/products/${product.id}`,
+      "priceCurrency": "INR",
+      "price": parseFloat(product.price.replace(/[^\d.]/g, "")),
+      "availability": "https://schema.org/InStock",
+      "priceValidUntil": "2027-12-31"
+    },
+    "brand": {
+      "@type": "Brand",
+      "name": "Digitee World",
+      "@id": "https://digiteeworld.com/#organization"
+    }
+  };
+
   return (
     <section className="relative w-full overflow-hidden bg-[var(--color-bg-primary)] pt-28 pb-20">
+      <SEO 
+        title={`Buy ${product.name} Online | Smart NFC Products`}
+        description={product.shortDesc}
+        path={`/products/${product.id}`}
+        ogImage={product.image}
+        schemaData={productSchema}
+      />
       <div
         className="absolute inset-0 opacity-[0.04]"
         style={{

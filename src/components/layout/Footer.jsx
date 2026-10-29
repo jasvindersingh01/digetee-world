@@ -134,7 +134,7 @@ const Footer = () => {
                 <div className="absolute inset-0 bg-[var(--color-brand-400)] blur-xl opacity-40 group-hover:opacity-70 transition-opacity duration-500" />
                 <img
                   src={logo}
-                  alt="Digitee World"
+                  alt="Digitee World - AI-first digital marketing agency"
                   className="relative h-12 w-auto object-contain transition-transform duration-500 group-hover:scale-110"
                 />
               </div>
@@ -231,7 +231,7 @@ const Footer = () => {
                         {loc.city}, {loc.state}
                       </p>
                       <a
-                        href={`tel:${loc.phone}`}
+                        href={`tel:${loc.phone.replace(/\s+/g, "")}`}
                         className="flex items-center gap-1.5 text-xs text-[var(--color-text-secondary)] hover:text-[var(--color-brand-400)] transition-colors mb-1"
                       >
                         <Phone size={10} />
@@ -268,9 +268,9 @@ const Footer = () => {
           transition={{ duration: 1 }}
           className="py-8 md:py-12 flex items-center justify-center overflow-hidden"
         >
-          <h1 className="text-[15vw] md:text-[18vw] lg:text-[16rem] font-black leading-none tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white/[0.08] to-transparent select-none">
+          <div aria-hidden="true" className="text-[15vw] md:text-[18vw] lg:text-[16rem] font-black leading-none tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white/[0.08] to-transparent select-none">
             DIGITEE
-          </h1>
+          </div>
         </motion.div>
 
         {/* ============ BOTTOM BAR ============ */}
