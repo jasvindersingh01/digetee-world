@@ -127,9 +127,10 @@ const Privacy = () => {
   return (
     <section className="relative w-full overflow-hidden bg-[var(--color-bg-primary)] pt-28 pb-20 md:pt-32">
       <SEO 
-        title="Privacy Policy | Digitee World" 
-        description="Read the privacy policy of Digitee World. Learn how we handle your personal details and protect your privacy."
-        path="/privacy-policy"
+        title="Privacy Policy | Digitee World Data Protection" 
+        description="Review the privacy policy of Digitee World. Learn how we handle your business information, protect your privacy, and adhere to strict data security standards." 
+        path="/privacy-policy" 
+        keywords="privacy policy Digitee World, data protection digital agency, client privacy terms, information security policy, cookie policy Digitee World"
       />
       {/* Background */}
       <div

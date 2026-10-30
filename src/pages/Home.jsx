@@ -131,8 +131,8 @@ export default function Home () {
     return (
         <>
             <SEO 
-                title="Digitee World - AI First Digital Marketing Agency in Rajasthan & Indore | Best Digital Marketing Agency in Rajasthan" 
-                description="Digitee World is an AI-first digital marketing agency in Rajasthan & Indore. We drive growth with SEO, GMB, web development, social media, WhatsApp, Google & Meta Ads."
+                title="Digitee World - AI-First Digital Marketing Agency in Rajasthan & Indore" 
+                description="Digitee World is an AI-first digital marketing agency in Rajasthan & Indore. We drive business growth with SEO, GMB optimization, website development, and paid ads."
                 path="/"
                 keywords="digital marketing agency Rajasthan, digital marketing agency Indore, AI digital marketing agency, digital marketing company Rajasthan, digital marketing company Indore, SEO agency Rajasthan, SEO services Rajasthan, SEO agency Indore, website development Rajasthan, website development Indore, social media marketing Rajasthan, social media marketing Indore, Google Business Profile services, GMB services, Google Ads management, Meta Ads management, YouTube marketing, WhatsApp marketing, landing page development, e-commerce website development"
                 schemaData={homeSchema}

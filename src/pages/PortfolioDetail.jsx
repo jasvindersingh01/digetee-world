@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import {
   ArrowLeft,
   ArrowUpRight,
-  Sparkles,
   Target,
   Lightbulb,
   TrendingUp,
@@ -12,6 +11,8 @@ import {
   Clock,
   Search,
   Expand,
+  Award,
+  MapPin,
 } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import Lightbox from "yet-another-react-lightbox";
@@ -24,37 +25,58 @@ import SEO from "../components/common/SEO";
 
 const PortfolioDetail = () => {
   const { slug } = useParams();
-  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
+  const [lightboxIndex, setLightboxIndex] = useState(-1);
   const project = getPortfolioBySlug(slug);
 
   if (!project) return <Navigate to="/portfolio" replace />;
 
   const relatedProjects = getRelatedProjects(project.id, project.category, 3);
 
+  const projectImages =
+    project.images && project.images.length > 0
+      ? project.images
+      : [
+          {
+            src: project.image,
+            alt: project.title,
+            caption: project.title,
+          },
+        ];
+
+  const slides = projectImages.map((img) => ({
+    src: img.src,
+    alt: img.alt || project.title,
+    title: img.caption || project.title,
+  }));
+
+  const activeImage = projectImages[activeImageIndex] || projectImages[0];
+
   const portfolioSchema = {
     "@context": "https://schema.org",
     "@type": "CreativeWork",
-    "name": project.title,
-    "description": project.description,
-    "image": `https://digiteeworld.com${project.image}`,
-    "creator": {
+    name: project.title,
+    description: project.description,
+    image: `https://digiteeworld.com${project.image}`,
+    creator: {
       "@type": "Organization",
       "@id": "https://digiteeworld.com/#organization",
-      "name": "Digitee World",
-      "logo": {
+      name: "Digitee World",
+      logo: {
         "@type": "ImageObject",
-        "url": "https://digiteeworld.com/logo.jpeg"
-      }
-    }
+        url: "https://digiteeworld.com/logo.jpeg",
+      },
+    },
   };
 
   return (
     <section className="relative w-full overflow-hidden bg-[var(--color-bg-primary)] pt-28 pb-16 md:pt-32">
-      <SEO 
-        title={`${project.title} - Case Study | Digitee World`}
-        description={project.description}
+      <SEO
+        title={project.seoTitle || `${project.title} - Case Study | Digitee World`}
+        description={project.seoDesc || project.description}
         path={`/portfolio/${project.slug}`}
         ogImage={project.image}
+        keywords={project.keywords || ""}
         schemaData={portfolioSchema}
       />
       {/* Background */}
@@ -93,12 +115,12 @@ const PortfolioDetail = () => {
 
         {/* ============ TWO COLUMN LAYOUT ============ */}
         <div className="grid lg:grid-cols-5 gap-8 lg:gap-10 items-start">
-          {/* ========== LEFT: IMAGE (2/5) ========== */}
+          {/* ========== LEFT: IMAGE & GALLERY (2/5) ========== */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7 }}
-            className="lg:col-span-2 lg:sticky lg:top-28"
+            className="lg:col-span-2 lg:sticky lg:top-28 space-y-4"
           >
             <div className="relative">
               {/* Glow */}
@@ -106,21 +128,22 @@ const PortfolioDetail = () => {
                 className={`absolute -inset-4 bg-gradient-to-br ${project.gradient} opacity-20 rounded-3xl blur-2xl`}
               />
 
-              {/* Image container */}
+              {/* Main Image container */}
               <button
-                onClick={() => setLightboxOpen(true)}
-                className="relative w-full rounded-2xl overflow-hidden border border-white/[0.08] bg-gradient-to-br from-black/60 to-black/30 cursor-zoom-in group p-4 md:p-6 flex items-center justify-center"
+                type="button"
+                onClick={() => setLightboxIndex(activeImageIndex)}
+                className="relative w-full rounded-2xl overflow-hidden border border-white/[0.08] bg-gradient-to-br from-black/60 to-black/30 cursor-zoom-in group p-4 md:p-6 flex flex-col items-center justify-center"
               >
                 <img
-                  src={project.image}
-                  alt={project.title}
-                  className="max-h-[500px] w-auto max-w-full object-contain rounded-xl shadow-2xl"
+                  src={activeImage.src}
+                  alt={activeImage.alt || project.title}
+                  className="max-h-[460px] w-auto max-w-full object-contain rounded-xl shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]"
                 />
 
                 {/* Category badge */}
                 <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-black/80 backdrop-blur-xl border border-white/10 z-10">
                   <span className="text-[10px] uppercase tracking-wider text-white font-bold">
-                    {project.category}
+                    {project.badge || project.category}
                   </span>
                 </div>
 
@@ -128,8 +151,49 @@ const PortfolioDetail = () => {
                 <div className="absolute top-3 right-3 w-9 h-9 rounded-full bg-black/80 backdrop-blur-xl border border-white/10 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-300">
                   <Expand size={14} />
                 </div>
+
+                {/* Caption pill */}
+                {activeImage.caption && (
+                  <div className="mt-3 text-center">
+                    <span className="text-xs text-white/80 font-medium">
+                      {activeImage.caption}
+                    </span>
+                  </div>
+                )}
               </button>
             </div>
+
+            {/* Thumbnail Gallery (if multiple images) */}
+            {projectImages.length > 1 && (
+              <div className="p-3 rounded-2xl bg-white/[0.02] border border-white/[0.06]">
+                <p className="text-[10px] uppercase tracking-wider text-[var(--color-brand-400)] font-bold mb-2">
+                  Project Gallery ({projectImages.length} Screenshots)
+                </p>
+                <div className="grid grid-cols-2 gap-2">
+                  {projectImages.map((img, i) => (
+                    <button
+                      key={i}
+                      type="button"
+                      onClick={() => setActiveImageIndex(i)}
+                      className={`p-2 rounded-xl border text-left transition-all cursor-pointer flex items-center gap-2 ${
+                        activeImageIndex === i
+                          ? "border-[var(--color-brand-400)] bg-[var(--color-brand-400)]/10"
+                          : "border-white/10 bg-black/30 hover:border-white/20"
+                      }`}
+                    >
+                      <img
+                        src={img.src}
+                        alt={img.alt}
+                        className="w-10 h-10 object-cover rounded-lg shrink-0"
+                      />
+                      <span className="text-[11px] text-white/90 line-clamp-1 font-medium">
+                        {img.caption || `Image ${i + 1}`}
+                      </span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
           </motion.div>
 
           {/* ========== RIGHT: CONTENT (3/5) ========== */}
@@ -141,11 +205,20 @@ const PortfolioDetail = () => {
           >
             {/* Header Info */}
             <div>
-              {/* Client + Duration */}
+              {/* Client + Duration + Location */}
               <div className="flex flex-wrap items-center gap-3 mb-3">
                 <span className="text-xs uppercase tracking-[0.2em] text-[var(--color-brand-400)] font-bold">
                   {project.client}
                 </span>
+                {project.location && (
+                  <>
+                    <span className="text-xs text-[var(--color-text-muted)]">•</span>
+                    <div className="flex items-center gap-1.5 text-xs text-[var(--color-text-muted)]">
+                      <MapPin size={11} className="text-[var(--color-brand-400)]" />
+                      {project.location}
+                    </div>
+                  </>
+                )}
                 {project.duration && (
                   <>
                     <span className="text-xs text-[var(--color-text-muted)]">•</span>
@@ -167,6 +240,14 @@ const PortfolioDetail = () => {
                 {project.description}
               </p>
 
+              {/* Achievement Banner */}
+              {project.achievement && (
+                <div className="mt-4 p-3.5 rounded-xl bg-[var(--color-brand-500)]/10 border border-[var(--color-brand-400)]/20 text-xs sm:text-sm text-[var(--color-brand-200)] flex items-center gap-2.5">
+                  <Award size={18} className="text-[var(--color-brand-400)] shrink-0" />
+                  <span className="font-medium">{project.achievement}</span>
+                </div>
+              )}
+
               {/* Keyword badge */}
               {project.keyword && (
                 <div className="mt-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.03] border border-[var(--color-brand-400)]/30 backdrop-blur-xl">
@@ -182,15 +263,15 @@ const PortfolioDetail = () => {
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-2.5">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5">
               {project.stats.map((stat, i) => (
                 <div
                   key={i}
-                  className="p-3 rounded-xl bg-white/[0.03] border border-white/[0.06] hover:border-[var(--color-brand-400)]/40 transition-all"
+                  className="p-3 rounded-xl bg-white/[0.03] border border-white/[0.06] hover:border-[var(--color-brand-400)]/40 transition-all text-center"
                 >
                   <TrendingUp
                     size={12}
-                    className="text-[var(--color-brand-400)] mb-1.5"
+                    className="text-[var(--color-brand-400)] mb-1.5 mx-auto"
                   />
                   <p className="text-lg font-bold text-white leading-tight">
                     {stat.value}
@@ -216,7 +297,7 @@ const PortfolioDetail = () => {
             {project.solution && (
               <CompactSection
                 icon={Lightbulb}
-                title="Our Approach"
+                title="Our Approach & Strategy"
                 content={project.solution}
                 gradient="from-blue-500 to-cyan-500"
               />
@@ -341,9 +422,10 @@ const PortfolioDetail = () => {
 
       {/* ============ LIGHTBOX ============ */}
       <Lightbox
-        open={lightboxOpen}
-        close={() => setLightboxOpen(false)}
-        slides={[{ src: project.image, alt: project.title }]}
+        open={lightboxIndex >= 0}
+        close={() => setLightboxIndex(-1)}
+        index={lightboxIndex}
+        slides={slides}
         styles={{
           container: { backgroundColor: "rgba(0, 0, 0, 0.95)" },
         }}

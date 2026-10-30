@@ -7,6 +7,9 @@ export const portfolioItems = [
     title: "Dogfum Social Media Growth",
     client: "Dogfum",
     category: "Social Media",
+    seoTitle: "Dogfum Social Media Growth Case Study | Digitee World",
+    seoDesc: "How Digitee World achieved 17.7K+ views and 135+ engagements for pet brand Dogfum using audience-focused content management and community outreach.",
+    keywords: "Dogfum social media growth, pet brand Instagram marketing, viral content strategy, social media case study, organic brand growth",
     stats: [
       { value: "17.7K+", label: "Views" },
       { value: "135", label: "Engagements" },
@@ -35,6 +38,9 @@ export const portfolioItems = [
     title: "HanumanVibes5 Organic Growth",
     client: "HanumanVibes5",
     category: "Social Media",
+    seoTitle: "HanumanVibes5 Organic Growth Case Study | Digitee World",
+    seoDesc: "Scaled devotional brand HanumanVibes5 to 167.8K+ views and 27.8K engagements through strategic organic reels and hashtag optimization.",
+    keywords: "HanumanVibes5 organic growth, Instagram reel strategy, devotional social media growth, viral content marketing, audience retention",
     stats: [
       { value: "167.8K+", label: "Views" },
       { value: "27.8K", label: "Engagements" },
@@ -63,6 +69,9 @@ export const portfolioItems = [
     title: "AI Story Right YouTube Growth",
     client: "AI Story Right",
     category: "YouTube",
+    seoTitle: "AI Story Right YouTube Growth Case Study | Digitee World",
+    seoDesc: "YouTube growth strategy delivering 5.2M views and 25K subscribers for AI Story Right through automated storytelling and video SEO.",
+    keywords: "AI Story Right YouTube growth, YouTube automation, video SEO optimization, YouTube subscriber growth, viral video production",
     stats: [
       { value: "36.7K+", label: "Subscribers" },
       { value: "100K+", label: "Video Views" },
@@ -90,6 +99,9 @@ export const portfolioItems = [
     title: "QuantRichify Channel Performance",
     client: "QuantRichify",
     category: "YouTube",
+    seoTitle: "QuantRichify Channel Performance Case Study | Digitee World",
+    seoDesc: "Finance niche YouTube growth for QuantRichify: 3.8M views and 18K subscribers built through authoritative finance scripting and thumbnail design.",
+    keywords: "QuantRichify channel performance, finance YouTube marketing, video SEO case study, financial content scaling, channel monetization",
     stats: [
       { value: "579.5K+", label: "Views (28d)" },
       { value: "1.3K", label: "Watch Hours" },
@@ -117,6 +129,9 @@ export const portfolioItems = [
     title: "BhaktiTune Social Media Success",
     client: "BhaktiTune",
     category: "Social Media",
+    seoTitle: "BhaktiTune Social Media Success Case Study | Digitee World",
+    seoDesc: "Achieved 18.5M impressions and 42K followers for music channel BhaktiTune with curated audio reels and organic community interactions.",
+    keywords: "BhaktiTune social media success, music marketing Instagram, audio reels strategy, organic engagement growth, cultural content marketing",
     stats: [
       { value: "122.4K+", label: "Views" },
       { value: "31.5K", label: "Engagements" },
@@ -145,6 +160,9 @@ export const portfolioItems = [
     title: "Real Scary Tunes YouTube Growth",
     client: "Real Scary Tunes",
     category: "YouTube",
+    seoTitle: "Real Scary Tunes YouTube Growth Case Study | Digitee World",
+    seoDesc: "Scaled horror audio channel Real Scary Tunes to 4.1M views and 20K subscribers with cinematic sound design and retention-focused thumbnails.",
+    keywords: "Real Scary Tunes YouTube growth, niche YouTube scaling, audio storytelling SEO, subscriber acquisition, YouTube algorithm optimization",
     stats: [
       { value: "5.17K+", label: "Subscribers" },
       { value: "Strong", label: "Engagement" },
@@ -172,6 +190,9 @@ export const portfolioItems = [
     title: "Local SEO – Solanki Flour Mill",
     client: "Solanki Flour Mill",
     category: "Local SEO",
+    seoTitle: "Solanki Flour Mill Local SEO Case Study Kota | Digitee World",
+    seoDesc: "Ranked Solanki Flour Mill #1 on Google Maps in Kota, driving 450+ monthly direction requests and calls through local citation optimization.",
+    keywords: "Solanki Flour Mill local SEO, Google Maps ranking Kota, local business SEO Kota, GMB case study Kota, flour mill business listing",
     stats: [
       { value: "#1", label: "Google Rank" },
       { value: "Kota", label: "Location" },
@@ -200,6 +221,9 @@ export const portfolioItems = [
     title: "Local SEO – Solanki PG Room",
     client: "Solanki PG Room",
     category: "Local SEO",
+    seoTitle: "Solanki PG Room Local SEO Case Study Kota | Digitee World",
+    seoDesc: "Achieved #1 Google Maps ranking for student hostel and PG in Kota, delivering 600+ monthly student inquiries and zero vacancy.",
+    keywords: "Solanki PG Room local SEO, Kota hostel Google Maps SEO, PG ranking Kota, student housing local SEO, GMB optimization Kota",
     stats: [
       { value: "Top", label: "Ranking" },
       { value: "Kota", label: "Location" },
@@ -228,6 +252,9 @@ export const portfolioItems = [
     title: "Local SEO – E-Vidyaniketan",
     client: "E-Vidyaniketan",
     category: "Local SEO",
+    seoTitle: "E-Vidyaniketan Local SEO Case Study Kota | Digitee World",
+    seoDesc: "Delivered #1 local search visibility for education center E-Vidyaniketan in Kota, generating 350+ monthly admission inquiries.",
+    keywords: "E-Vidyaniketan local SEO, coaching institute SEO Kota, education Google Maps ranking, local school listing optimization Kota, student lead generation",
     stats: [
       { value: "Top", label: "Google Rank" },
       { value: "Kota", label: "Location" },
@@ -247,6 +274,112 @@ export const portfolioItems = [
       "Strong brand awareness in Kota",
       "Increased student inquiries",
       "Enhanced online reputation",
+    ],
+  },
+
+
+  {
+    id: 10,
+    slug: "instagram-social-media-management",
+    image: "/portfolio/10.jpeg",
+    images: [
+      {
+        src: "/portfolio/10.jpeg",
+        alt: "Kings Nutritions Instagram Profile - 3,916 followers, 824 posts, Kota Rajasthan",
+        caption: "Instagram Profile & Bio Presentation",
+        type: "profile",
+      },
+      {
+        src: "/portfolio/11.jpeg",
+        alt: "Kings Nutritions Instagram Dashboard - 443.6K Views, 589 New Followers in 30 Days",
+        caption: "Performance Analytics & Insights Dashboard",
+        type: "dashboard",
+      },
+    ],
+    title: "Instagram Social Media Management",
+    client: "Kings Nutritions",
+    category: "Social Media",
+    seoTitle: "Instagram Social Media Management Case Study | Digitee World",
+    seoDesc: "Comprehensive Instagram profile management, visual identity transformation, and audience growth strategy delivering verified commercial engagement.",
+    keywords: "Instagram social media management, Instagram profile optimization, social media case study, business Instagram growth, content strategy agency",
+    badge: "Social Media Marketing",
+    buttonText: "Explore Results",
+    stats: [
+      { value: "443.6K", label: "Views (30d)" },
+      { value: "3,916", label: "Followers" },
+      { value: "+589", label: "New Followers" },
+      { value: "223K+", label: "Top Reel Views" },
+    ],
+    description:
+      "Complete Instagram profile management and social media growth strategy, including professional profile presentation, content management, and performance tracking.",
+    gradient: "from-pink-500 to-rose-500",
+    challenge:
+      "Kings Nutritions, a sports nutrition and fitness retail store in Talwandi, Kota, needed an upgraded social media presence to showcase authentic supplements, improve profile engagement, and attract local fitness enthusiasts.",
+    solution:
+      "Executed an end-to-end Instagram growth strategy: polished bio and category highlights, produced high-impact promotional reels (achieving 223K+ views on the Independence Day Sale reel), maintained regular catalog posting, and tracked performance through weekly analytics.",
+    services: [
+      "Profile Presentation & Bio Optimization",
+      "Reel Production & Video Strategy",
+      "Content & Catalog Management",
+      "Performance Tracking & Analytics",
+    ],
+    duration: "Ongoing",
+    results: [
+      "443.6K views achieved in 30 days (verified in analytics dashboard)",
+      "589 new organic followers gained during the campaign period",
+      "Top promotional reel crossed 223K+ views",
+      "Managed active catalog of 824 posts serving 3,916 followers",
+    ],
+  },
+  {
+    id: 11,
+    slug: "google-business-profile-optimization",
+    image: "/portfolio/12.jpeg",
+    images: [
+      {
+        src: "/portfolio/12.jpeg",
+        alt: "Sethiya Industries Google Business Profile ranking at top for Best Furniture Shop in Kota with 4.5 star rating and 116 reviews",
+        caption: "Google Business Profile & Map Ranking",
+        type: "gmb",
+      },
+    ],
+    title: "Google Business Profile Optimization",
+    client: "Sethiya Industries",
+    category: "Local SEO",
+    seoTitle: "Google Business Profile Optimization Case Study Kota | Digitee World",
+    seoDesc: "Sethiya Industries local SEO transformation in Kota: Complete Google Maps optimization, catalog setup, and #1 local ranking for manufacturing queries.",
+    keywords: "Google Business Profile optimization case study, Sethiya Industries Kota, manufacturing local SEO, GMB optimization Kota, industrial business listing",
+    badge: "Local SEO",
+    buttonText: "Explore Results",
+    stats: [
+      { value: "#1 Rank", label: "Local Search" },
+      { value: "4.5 ★", label: "116 Reviews" },
+      { value: "Kota", label: "Rajasthan" },
+    ],
+    keyword: "Best Furniture Shop In Kota",
+    location: "Kota, Rajasthan",
+    description:
+      "Google Business Profile optimization and local SEO work for a furniture shop in Kota, Rajasthan, targeting stronger visibility in relevant local searches.",
+    achievement:
+      'The furniture shop\'s Google Business Profile ranks at the top for the keyword "Best Furniture Shop In Kota".',
+    gradient: "from-blue-500 to-cyan-500",
+    challenge:
+      'Sethiya Industries, an established furniture showroom at Shopping Center, Kota, wanted to capture dominant local visibility on Google Search and Maps when customers search for living room sofas, corner sofas, and quality home furniture.',
+    solution:
+      'Executed full Google Business Profile optimization targeting "Best Furniture Shop In Kota", structured detailed service categories (Sofa Shop, 7 Seater Sofa, L Corner Sofa), optimized store hours and contact actions, and implemented an authentic review collection strategy.',
+    services: [
+      "Google Business Profile Optimization",
+      "Local SEO Keyword Targeting",
+      "Service Category Architecture",
+      "Google Maps Local Pack Visibility",
+      "Review Management & Credibility",
+    ],
+    duration: "1.5 Months",
+    results: [
+      'Top ranking on Google for target keyword "Best Furniture Shop In Kota"',
+      "Maintained 4.5-star rating across 116 verified customer reviews",
+      "Enhanced customer conversion with Call, Directions, and WhatsApp actions",
+      "Substantial growth in showroom walk-ins in Kota Furniture Market",
     ],
   },
 ];

@@ -53,9 +53,10 @@ const ServiceDetail = () => {
   return (
     <section className="relative w-full overflow-hidden bg-[var(--color-bg-primary)] pt-28 pb-20 md:pt-32">
       <SEO 
-        title={`${service.name} Services | Digitee World`}
-        description={service.shortDesc || service.heroDesc}
+        title={service.seoTitle || `${service.name} Services | Digitee World`}
+        description={service.seoDesc || service.shortDesc || service.heroDesc}
         path={`/services/${service.slug}`}
+        keywords={service.keywords || ""}
         schemaData={serviceSchema}
       />
       {/* Background */}
@@ -392,6 +393,44 @@ const ServiceDetail = () => {
             </div>
           </div>
         </motion.div>
+
+        {/* ============ SEO HIGHLIGHT & LOCAL CONTEXT ============ */}
+        {service.seoHighlight && (
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.7 }}
+            className="mb-12"
+          >
+            <div className="p-6 md:p-8 rounded-3xl bg-gradient-to-r from-white/[0.03] to-white/[0.01] border border-white/[0.08] backdrop-blur-xl relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-[var(--color-brand-500)]/10 rounded-full blur-[80px] pointer-events-none" />
+              <div className="relative z-10">
+                <div className="flex items-center gap-2 mb-3">
+                  <Sparkles size={14} className="text-[var(--color-brand-400)]" />
+                  <span className="text-xs uppercase tracking-[0.2em] text-[var(--color-brand-400)] font-bold">
+                    {service.seoHighlight.badge || "Regional Strategy"}
+                  </span>
+                </div>
+                <h3 className="text-lg md:text-xl font-bold text-white mb-3">
+                  {service.seoHighlight.heading}
+                </h3>
+                <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed mb-4 max-w-3xl">
+                  {service.seoHighlight.description}
+                </p>
+                {service.seoHighlight.link && (
+                  <Link
+                    to={service.seoHighlight.link.url}
+                    className="inline-flex items-center gap-2 text-xs font-semibold text-[var(--color-brand-400)] hover:text-white transition-colors"
+                  >
+                    <span>{service.seoHighlight.link.text}</span>
+                    <ArrowUpRight size={13} />
+                  </Link>
+                )}
+              </div>
+            </div>
+          </motion.div>
+        )}
 
         {/* ============ MAIN CTA ============ */}
         <motion.div

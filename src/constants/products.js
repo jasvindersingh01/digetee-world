@@ -8,6 +8,9 @@ export const nfcProducts = [
     category: "nfc",
     name: "NFC Business Card",
     tagline: "Smart Digital Networking",
+    seoTitle: "Buy NFC Business Card Online | Smart Digital Visiting Card",
+    seoDesc: "Order custom branded NFC business cards. Share contact info, social links, and your website in one tap on any smartphone with zero apps required.",
+    keywords: "buy NFC business card, smart visiting card India, digital NFC card, contactless business card, metal NFC card, customized smart card",
     shortDesc:
       "Modern NFC-enabled business cards that share your contact details, social profiles, and website with a single tap on any smartphone.",
     fullDesc:
@@ -34,6 +37,9 @@ export const nfcProducts = [
     category: "nfc",
     name: "NFC Smart Ring XZ",
     tagline: "Wearable Smart Networking",
+    seoTitle: "NFC Smart Ring XZ | Wearable Digital Networking Ring",
+    seoDesc: "Experience next-level connectivity with the NFC Smart Ring XZ. Sleek wearable titanium smart ring that shares your profile with a simple tap.",
+    keywords: "NFC smart ring, smart ring India, wearable NFC technology, digital identity ring, contactless sharing ring, titanium smart ring",
     shortDesc:
       "Premium NFC Smart Ring that lets you share contacts, links, and payment info with a simple hand gesture. Style meets technology.",
     fullDesc:
@@ -60,6 +66,9 @@ export const nfcProducts = [
     category: "nfc",
     name: "Digital Google Review Card",
     tagline: "Boost Your Reviews Instantly",
+    seoTitle: "Digital Google Review Card | Instant 1-Tap NFC Review Card",
+    seoDesc: "Boost your 5-star Google Maps reviews instantly. Customers tap their phone on the card to open your Google review screen directly in seconds.",
+    keywords: "Google review card, NFC tap review card, Google review tap stand, get more 5 star Google reviews, contactless review card India, local business review booster",
     shortDesc:
       "NFC-enabled Google Review Card that lets your customers leave a Google review with a single tap. Perfect for restaurants, salons, and local businesses.",
     fullDesc:
@@ -86,6 +95,9 @@ export const nfcProducts = [
     category: "nfc",
     name: "NFC Tap + QR Code",
     tagline: "Dual Sharing Technology",
+    seoTitle: "NFC Tap + QR Code Smart Card | Universal Networking Card",
+    seoDesc: "Dual-technology smart card combining instant NFC tap and high-resolution dynamic QR code for 100% compatibility across all modern smartphones.",
+    keywords: "NFC tap and QR code card, hybrid smart card, QR visiting card, dual technology NFC card, digital profile card, universal smartphone business card",
     shortDesc:
       "The perfect combo — NFC + QR code in one card. Works with both NFC-enabled and older phones. Universal compatibility for maximum reach.",
     fullDesc:

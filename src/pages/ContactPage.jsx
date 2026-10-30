@@ -142,9 +142,10 @@ const ContactPage = () => {
   return (
     <section className="relative w-full overflow-hidden bg-[var(--color-bg-primary)] pt-28 pb-20 md:pt-32">
       <SEO 
-        title="Contact Us - Start Your Project | Digitee World" 
-        description="Get in touch with our branches in Kota (Rajasthan) and Indore (Madhya Pradesh). Schedule a free business consultation call and power your business growth."
-        path="/contact"
+        title="Contact Digitee World | Marketing Offices in Kota & Indore" 
+        description="Get in touch with Digitee World. Connect with our teams in Kota, Rajasthan and Indore, Madhya Pradesh. Schedule a free 30-minute growth consultation call." 
+        path="/contact" 
+        keywords="contact digital marketing agency, digital marketing agency Kota contact, digital marketing office Indore, free digital marketing consultation, marketing agency phone number Rajasthan, business growth inquiry"
         schemaData={contactSchema}
       />
       {/* ============ BACKGROUND EFFECTS ============ */}
@@ -570,9 +571,53 @@ const ContactPage = () => {
               </AnimatePresence>
             </div>
           </motion.div>
-        </div>
+        {/* ============ SEO LOCAL CONSULTATION BLOCK ============ */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="mt-16 p-6 md:p-8 rounded-3xl bg-gradient-to-r from-white/[0.03] to-white/[0.01] border border-white/[0.08] backdrop-blur-xl relative overflow-hidden"
+        >
+          <div className="flex items-center gap-2 mb-3">
+            <Sparkles size={14} className="text-[var(--color-brand-400)]" />
+            <span className="text-xs uppercase tracking-[0.2em] text-[var(--color-brand-400)] font-bold">
+              Regional Presence & Consultations
+            </span>
+          </div>
+          <h2 className="text-xl md:text-2xl font-bold text-white mb-3">
+            Strategic Growth Consultations in Kota, Indore & Across India
+          </h2>
+          <p className="text-sm md:text-base text-[var(--color-text-secondary)] leading-relaxed mb-5">
+            Whether you prefer an in-person strategy discussion at our Kota head office or Indore branch, or a virtual consultation from anywhere in India, our digital marketing and web development specialists provide tailored growth roadmaps, competitor SEO analysis, and marketing audits to accelerate your business goals.
+          </p>
+          <div className="flex flex-wrap items-center gap-4 text-xs font-semibold">
+            <Link
+              to="/services"
+              className="inline-flex items-center gap-1.5 text-[var(--color-brand-400)] hover:text-white transition-colors"
+            >
+              <span>Explore All Services</span>
+              <ArrowUpRight size={13} />
+            </Link>
+            <Link
+              to="/portfolio"
+              className="inline-flex items-center gap-1.5 text-[var(--color-brand-400)] hover:text-white transition-colors"
+            >
+              <span>View Client Case Studies</span>
+              <ArrowUpRight size={13} />
+            </Link>
+            <Link
+              to="/about"
+              className="inline-flex items-center gap-1.5 text-[var(--color-text-muted)] hover:text-[var(--color-brand-400)] transition-colors"
+            >
+              <span>About Digitee World</span>
+              <ArrowUpRight size={13} />
+            </Link>
+          </div>
+        </motion.div>
       </div>
-    </section>
+    </div>
+  </section>
   );
 };
 

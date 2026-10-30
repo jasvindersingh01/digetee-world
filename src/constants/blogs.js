@@ -7,6 +7,9 @@ export const blogPosts = [
     excerpt:
       "Want your business to show up when someone searches on Google Maps in Kota? Here's a simple guide to get your business ranked at the top.",
     category: "Local SEO",
+    seoTitle: "How to Rank #1 on Google Maps in Kota | Local SEO Strategy",
+    seoDesc: "Step-by-step local SEO guide to ranking your Kota business at the top of Google Maps. Master GMB optimization, citations, and customer reviews.",
+    keywords: "rank on Google Maps in Kota, Kota local SEO guide, Google Business Profile ranking Kota, local map pack optimization, Kota business visibility, local search rankings",
     author: "Chanchal Singh",
     date: "Dec 15, 2024",
     readTime: "5 min read",
@@ -63,6 +66,9 @@ export const blogPosts = [
     excerpt:
       "Instagram and Facebook are great, but they're not enough. Here's why every serious business needs its own website in 2025 — no exceptions.",
     category: "Business Growth",
+    seoTitle: "Why Your Business Needs a Website in 2026 | Digitee World",
+    seoDesc: "Discover why relying solely on social media limits your business growth and how a dedicated, search-optimized website builds trust and scales conversions.",
+    keywords: "why business needs a website, website vs social media, business website benefits, professional website ROI, web development importance, online business credibility",
     author: "Chanchal Singh",
     date: "Dec 10, 2024",
     readTime: "4 min read",

@@ -39,8 +39,9 @@ const ServicesPage = () => {
     <section className="relative w-full overflow-hidden bg-[var(--color-bg-primary)]">
       <SEO 
         title="Professional Digital Marketing Services | Digitee World" 
-        description="Boost your online presence with our advanced digital marketing services, including Website Development, Local SEO, Social Media Marketing, WhatsApp Automation, and Paid Ad campaigns."
-        path="/services"
+        description="Boost your online presence with Digitee World's result-driven digital marketing services: Local SEO, Google Business Profile optimization, custom website development, paid ads, and AI automation." 
+        path="/services" 
+        keywords="digital marketing services Rajasthan, digital marketing agency Indore, local SEO Kota, web development services, performance marketing India, social media marketing Rajasthan, GMB optimization Kota"
       />
       {/* ============ HERO ============ */}
       <HeroSection />
@@ -103,6 +104,60 @@ const ServicesPage = () => {
             </p>
           </div>
         )}
+      </div>
+
+      {/* ============ SEO HIGHLIGHT BLOCK ============ */}
+      <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-10 mb-12">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="p-6 md:p-8 rounded-3xl bg-gradient-to-r from-white/[0.03] to-white/[0.01] border border-white/[0.08] backdrop-blur-xl relative overflow-hidden"
+        >
+          <div className="flex items-center gap-2 mb-3">
+            <Sparkles size={14} className="text-[var(--color-brand-400)]" />
+            <span className="text-xs uppercase tracking-[0.2em] text-[var(--color-brand-400)] font-bold">
+              Regional Digital Strategy
+            </span>
+          </div>
+          <h2 className="text-xl md:text-2xl font-bold text-white mb-3">
+            Strategic Growth for Rajasthan & Central India Businesses
+          </h2>
+          <p className="text-sm md:text-base text-[var(--color-text-secondary)] leading-relaxed mb-5">
+            Whether you are targeting local customers in Kota, Jaipur, and Udaipur or expanding across Indore and Central India, Digitee World combines SEO services, Google Business Profile optimization, and custom website development to build a high-converting digital presence.
+          </p>
+          <div className="flex flex-wrap items-center gap-4 text-xs font-semibold">
+            <Link
+              to="/services/seo-services"
+              className="inline-flex items-center gap-1.5 text-[var(--color-brand-400)] hover:text-white transition-colors"
+            >
+              <span>SEO Services</span>
+              <ArrowUpRight size={13} />
+            </Link>
+            <Link
+              to="/services/gmb-optimization"
+              className="inline-flex items-center gap-1.5 text-[var(--color-brand-400)] hover:text-white transition-colors"
+            >
+              <span>Google Business Profile</span>
+              <ArrowUpRight size={13} />
+            </Link>
+            <Link
+              to="/services/website-development"
+              className="inline-flex items-center gap-1.5 text-[var(--color-brand-400)] hover:text-white transition-colors"
+            >
+              <span>Website Development</span>
+              <ArrowUpRight size={13} />
+            </Link>
+            <Link
+              to="/portfolio"
+              className="inline-flex items-center gap-1.5 text-[var(--color-text-muted)] hover:text-[var(--color-brand-400)] transition-colors"
+            >
+              <span>View Case Studies</span>
+              <ArrowUpRight size={13} />
+            </Link>
+          </div>
+        </motion.div>
       </div>
 
       {/* ============ CTA ============ */}

@@ -29,9 +29,10 @@ const BlogPage = () => {
   return (
     <section className="relative w-full overflow-hidden bg-[var(--color-bg-primary)] pb-20 md:pb-28">
       <SEO 
-        title="Digital Marketing & SEO Blog | Digitee World" 
-        description="Expert tips, guides, and insights on local SEO, website optimization, GMB rankings, and digital marketing trends to grow your business."
-        path="/blog"
+        title="Digital Marketing & Local SEO Blog | Digitee World Insights" 
+        description="Read actionable guides, expert tips, and case study insights on Google Maps SEO, web design, and digital growth strategies for Indian businesses." 
+        path="/blog" 
+        keywords="digital marketing blog, local SEO tips Rajasthan, Google Maps ranking guide, website growth strategies, small business marketing insights, digital trends India"
       />
       {/* ============ HERO ============ */}
       <div className="relative w-full pt-32 pb-12 md:pt-40 md:pb-16">
@@ -173,6 +174,52 @@ const BlogPage = () => {
             </p>
           </motion.div>
         )}
+      </div>
+      {/* ============ SEO HIGHLIGHT BLOCK ============ */}
+      <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-10 mt-16">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="p-6 md:p-8 rounded-3xl bg-gradient-to-r from-white/[0.03] to-white/[0.01] border border-white/[0.08] backdrop-blur-xl relative overflow-hidden"
+        >
+          <div className="flex items-center gap-2 mb-3">
+            <Sparkles size={14} className="text-[var(--color-brand-400)]" />
+            <span className="text-xs uppercase tracking-[0.2em] text-[var(--color-brand-400)] font-bold">
+              Digital Marketing Insights
+            </span>
+          </div>
+          <h2 className="text-xl md:text-2xl font-bold text-white mb-3">
+            Practical Playbooks for Regional & Online Growth
+          </h2>
+          <p className="text-sm md:text-base text-[var(--color-text-secondary)] leading-relaxed mb-5">
+            Stay informed with field-tested strategies on Google Maps SEO ranking, custom website design, social media marketing, and AI automation tailored for growing businesses in Rajasthan, Madhya Pradesh, and across India.
+          </p>
+          <div className="flex flex-wrap items-center gap-4 text-xs font-semibold">
+            <Link
+              to="/blog/how-to-rank-1-on-google-maps-in-kota"
+              className="inline-flex items-center gap-1.5 text-[var(--color-brand-400)] hover:text-white transition-colors"
+            >
+              <span>Kota Google Maps Guide</span>
+              <ArrowUpRight size={13} />
+            </Link>
+            <Link
+              to="/blog/why-your-business-needs-a-website"
+              className="inline-flex items-center gap-1.5 text-[var(--color-brand-400)] hover:text-white transition-colors"
+            >
+              <span>Why Your Business Needs a Website</span>
+              <ArrowUpRight size={13} />
+            </Link>
+            <Link
+              to="/services"
+              className="inline-flex items-center gap-1.5 text-[var(--color-text-muted)] hover:text-[var(--color-brand-400)] transition-colors"
+            >
+              <span>Explore Agency Services</span>
+              <ArrowUpRight size={13} />
+            </Link>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

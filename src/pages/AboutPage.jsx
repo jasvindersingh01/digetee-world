@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import SEO from "../components/common/SEO";
+import Leadership from "../components/sections/Leadership";
 import {
     ArrowUpRight,
     Sparkles,
@@ -126,9 +127,10 @@ const AboutPage = () => {
     return (
         <section className="relative w-full overflow-hidden bg-[var(--color-bg-primary)]">
             <SEO 
-                title="About Digitee World | Digital Marketing Agency Kota & Indore" 
-                description="Founded in June 2022, Digitee World is an ISO 9001 certified digital marketing agency in Kota and Indore. Learn about our 'Physics of Business Growth' framework."
-                path="/about"
+                title="About Digitee World | Leading Digital Marketing Agency Kota & Indore" 
+                description="Founded in June 2022, Digitee World is an ISO 9001 certified digital marketing agency in Kota and Indore led by Chanchal Singh and experienced leadership." 
+                path="/about" 
+                keywords="about Digitee World, digital marketing agency Kota, digital marketing agency Indore, digital marketing company Rajasthan, ISO 9001 certified marketing agency, Chanchal Singh founder, Digitee World leadership" 
                 schemaData={aboutSchema}
             />
             {/* ==================== HERO ==================== */}
@@ -142,6 +144,9 @@ const AboutPage = () => {
 
             {/* ==================== FOUNDER SECTION ==================== */}
             <FounderSection />
+
+            {/* ==================== LEADERSHIP SECTION ==================== */}
+            <Leadership />
 
             {/* ==================== PHILOSOPHY ==================== */}
             <PhilosophySection />
@@ -662,7 +667,7 @@ const FounderSection = () => (
                     {/* Greeting */}
                     <div className="mb-6">
                         <p className="text-lg md:text-xl text-[var(--color-brand-400)] font-semibold mb-2">
-                            Hi, I'm Chanchal Singh 👋
+                            Hi, I'm Chanchal Singh
                         </p>
                         <h3 className="text-2xl md:text-3xl font-bold text-white leading-tight">
                             Founder & CEO of Digitee World
@@ -920,7 +925,7 @@ const FounderSection = () => (
                         >
                             <img
                                 src={item.img}
-                                alt={item.label}
+                                alt={`${item.label} - Digitee World Recognition`}
                                 className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />

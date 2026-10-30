@@ -66,10 +66,11 @@ const BlogDetail = () => {
   return (
     <article className="relative w-full overflow-hidden bg-[var(--color-bg-primary)] pt-28 pb-16 md:pt-32">
       <SEO 
-        title={`${post.title} | Digitee World Blog`}
-        description={post.excerpt}
+        title={post.seoTitle || `${post.title} | Digitee World Blog`}
+        description={post.seoDesc || post.excerpt}
         path={`/blog/${post.slug}`}
         ogImage={post.image}
+        keywords={post.keywords || ""}
         schemaData={blogSchema}
       />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[500px] bg-[var(--color-brand-500)]/10 rounded-full blur-[130px] pointer-events-none" />

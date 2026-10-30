@@ -14,9 +14,10 @@ const ProductsPage = () => {
   return (
     <section className="relative w-full overflow-hidden bg-[var(--color-bg-primary)]">
       <SEO 
-        title="NFC Business Cards & Smart Networking Products | Digitee World" 
-        description="Shop premium NFC smart products: NFC Business Cards, NFC Smart Rings, Digital Google Review Cards, and NFC Tap + QR Code cards. Modernize your networking."
-        path="/products"
+        title="NFC Business Cards & Smart Networking Products | Digitee World Shop" 
+        description="Shop premium NFC smart products: NFC Business Cards, Smart Rings, and Google Review Tap Cards. Elevate your networking and review collection effortlessly." 
+        path="/products" 
+        keywords="NFC smart products, buy NFC business cards online, digital Google review cards, smart NFC ring India, NFC tap QR code card, contactless business cards"
       />
       {/* ============ PRODUCT HERO ============ */}
       <div className="relative w-full pt-32 pb-16 md:pt-40 md:pb-24">
@@ -70,6 +71,59 @@ const ProductsPage = () => {
         products={nfcProducts}
         gridCols="grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
       />
+      {/* ============ SEO HIGHLIGHT BLOCK ============ */}
+      <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-10 pb-20">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="p-6 md:p-8 rounded-3xl bg-gradient-to-r from-white/[0.03] to-white/[0.01] border border-white/[0.08] backdrop-blur-xl relative overflow-hidden"
+        >
+          <div className="flex items-center gap-2 mb-3">
+            <Sparkles size={14} className="text-[var(--color-brand-400)]" />
+            <span className="text-xs uppercase tracking-[0.2em] text-[var(--color-brand-400)] font-bold">
+              Smart Business Cards & Review Tools
+            </span>
+          </div>
+          <h2 className="text-xl md:text-2xl font-bold text-white mb-3">
+            Next-Gen Networking for Indian Entrepreneurs & Retailers
+          </h2>
+          <p className="text-sm md:text-base text-[var(--color-text-secondary)] leading-relaxed mb-5">
+            Modern businesses in Kota, Indore, and across Rajasthan are replacing paper visiting cards with eco-friendly NFC business cards and Digital Google Review tap cards. A single tap allows clients to save your contact information or leave a 5-star Google Maps review instantly without typing.
+          </p>
+          <div className="flex flex-wrap items-center gap-4 text-xs font-semibold">
+            <Link
+              to="/products/google-review-card"
+              className="inline-flex items-center gap-1.5 text-[var(--color-brand-400)] hover:text-white transition-colors"
+            >
+              <span>Google Review Card</span>
+              <ArrowUpRight size={13} />
+            </Link>
+            <Link
+              to="/products/nfc-business-card"
+              className="inline-flex items-center gap-1.5 text-[var(--color-brand-400)] hover:text-white transition-colors"
+            >
+              <span>NFC Business Card</span>
+              <ArrowUpRight size={13} />
+            </Link>
+            <Link
+              to="/services/gmb-optimization"
+              className="inline-flex items-center gap-1.5 text-[var(--color-brand-400)] hover:text-white transition-colors"
+            >
+              <span>GMB Local SEO Services</span>
+              <ArrowUpRight size={13} />
+            </Link>
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-1.5 text-[var(--color-text-muted)] hover:text-[var(--color-brand-400)] transition-colors"
+            >
+              <span>Bulk Corporate Orders</span>
+              <ArrowUpRight size={13} />
+            </Link>
+          </div>
+        </motion.div>
+      </div>
     </section>
   );
 };

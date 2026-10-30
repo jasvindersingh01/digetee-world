@@ -45,10 +45,11 @@ const ProductDetail = () => {
   return (
     <section className="relative w-full overflow-hidden bg-[var(--color-bg-primary)] pt-28 pb-20">
       <SEO 
-        title={`Buy ${product.name} Online | Smart NFC Products`}
-        description={product.shortDesc}
+        title={product.seoTitle || `Buy ${product.name} Online | Smart NFC Products`}
+        description={product.seoDesc || product.shortDesc}
         path={`/products/${product.id}`}
         ogImage={product.image}
+        keywords={product.keywords || ""}
         schemaData={productSchema}
       />
       <div

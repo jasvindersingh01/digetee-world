@@ -187,9 +187,10 @@ const Terms = () => {
   return (
     <section className="relative min-h-screen w-full overflow-hidden bg-[var(--color-bg-primary)] pt-32 pb-20">
       <SEO 
-        title="Terms of Service | Digitee World" 
-        description="Terms of service and conditions for using the Digitee World website and digital marketing services."
-        path="/terms"
+        title="Terms of Service | Digitee World Service Agreement" 
+        description="Review the terms and conditions for Digitee World's website development, local SEO, social media marketing, and digital advertising services." 
+        path="/terms" 
+        keywords="terms of service Digitee World, terms and conditions digital marketing, service agreement Digitee World, client terms of use, agency agreement Rajasthan"
       />
       {/* Background */}
       <div

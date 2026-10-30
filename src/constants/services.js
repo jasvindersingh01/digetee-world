@@ -10,6 +10,18 @@ export const servicesData = [
     heroDesc:
       "Get your business on Google Maps and rank #1 in local searches. Complete GMB setup, optimization, and management to bring more customers to your doorstep.",
     category: "Local SEO",
+    seoTitle: "Google Business Profile Optimization & GMB Services in Rajasthan | Digitee World",
+    seoDesc: "Rank #1 on Google Maps in Kota and Rajasthan with expert Google Business Profile optimization, citation building, review strategy, and local SEO services.",
+    keywords: "Google Business Profile optimization, GMB services in Rajasthan, Google Maps SEO Kota, local business listing optimization, Google Business Profile management, GMB ranking agency",
+    seoHighlight: {
+          "badge": "Local Search Dominance",
+          "heading": "Google Maps SEO & Local Visibility in Rajasthan",
+          "description": "Local search intent drives immediate footfall and calls for service providers and retailers in Kota, Jaipur, and Indore. Our GMB optimization packages establish top 3-pack Google Maps positions within 1.5 months through consistent citations, geo-tagged photo updates, and structured review generation.",
+          "link": {
+                "text": "Read Kota Google Maps Ranking Guide",
+                "url": "/blog/how-to-rank-1-on-google-maps-in-kota"
+          }
+    },
     duration: "1.5 Months for Ranking",
     image: "/services/gmb.jfif",
     gradient: "from-blue-500 to-cyan-400",
@@ -76,6 +88,18 @@ export const servicesData = [
     heroDesc:
       "Custom-designed, fast-loading, SEO-friendly websites — from simple landing pages to full e-commerce stores. Built to grow your business.",
     category: "Development",
+    seoTitle: "Website Development Company in Rajasthan & Indore | Digitee World",
+    seoDesc: "Custom, high-converting websites built by Digitee World. From fast responsive landing pages to e-commerce web development for businesses in Kota, Indore, and across India.",
+    keywords: "website development company in Rajasthan, website development in Indore, business website development, e-commerce website development, professional website design Kota, responsive web design",
+    seoHighlight: {
+          "badge": "High-Converting Design",
+          "heading": "Engineered for Speed, SEO & Mobile Conversions",
+          "description": "Over 80% of local customers in Rajasthan and Indore search on mobile devices. Every website we build features sub-3-second load times, structured schema markup, and clear conversion paths designed to turn website visitors into qualified phone inquiries and sales.",
+          "link": {
+                "text": "Why Your Business Needs a Dedicated Website",
+                "url": "/blog/why-your-business-needs-a-website"
+          }
+    },
     duration: "1-2 Weeks Delivery",
     image: "/services/website.jfif",
     gradient: "from-cyan-400 to-teal-400",
@@ -142,6 +166,18 @@ export const servicesData = [
     heroDesc:
       "Strategic content, engaging visuals, and consistent posting across Instagram, Facebook, and LinkedIn to grow your audience and generate leads.",
     category: "Marketing",
+    seoTitle: "Social Media Marketing Agency in Rajasthan & Indore | Digitee World",
+    seoDesc: "Grow your brand visibility and engaged followers with Digitee World's social media marketing services in Rajasthan & Indore. Content creation, reels, and strategic campaigns.",
+    keywords: "social media marketing agency Rajasthan, social media management Indore, Instagram growth agency Kota, creative content marketing, social media campaigns, brand engagement",
+    seoHighlight: {
+          "badge": "Organic & Viral Growth",
+          "heading": "Community Building & Brand Authority on Social Channels",
+          "description": "From hyper-engaging Instagram reels to branded community content, our social media marketing strategies combine compelling graphic design, audience research, and algorithmic trend-matching to build loyal followings across Rajasthan and Central India.",
+          "link": {
+                "text": "Explore Social Media Client Case Studies",
+                "url": "/portfolio"
+          }
+    },
     duration: "Results in 30-60 Days",
     image: "/services/social-media.jfif",
     gradient: "from-pink-500 to-rose-400",
@@ -208,6 +244,18 @@ export const servicesData = [
     heroDesc:
       "Bulk campaigns, automation, catalogs, and chatbots — everything you need to turn WhatsApp into your #1 sales channel.",
     category: "Marketing",
+    seoTitle: "WhatsApp Marketing & Business Automation Services | Digitee World",
+    seoDesc: "Engage customers directly with automated WhatsApp marketing services, official API integrations, broadcast sequences, and 98% open-rate lead generation campaigns.",
+    keywords: "WhatsApp marketing services, WhatsApp business automation, bulk WhatsApp campaigns Rajasthan, WhatsApp API integration, lead nurturing WhatsApp, broadcast marketing India",
+    seoHighlight: {
+          "badge": "Direct Conversions",
+          "heading": "Harness 98% Open Rates with Automated WhatsApp Sequences",
+          "description": "Traditional email marketing often sees low engagement; WhatsApp delivers direct, instant communication for Indian businesses. We build compliant WhatsApp broadcast funnels, automated welcome sequences, and appointment confirmations that drive repeat purchases.",
+          "link": {
+                "text": "Pair with AI Chatbot Automation",
+                "url": "/services/ai-chatbot"
+          }
+    },
     duration: "Live in 3-5 Days",
     image: "/services/whatsapp.jfif",
     gradient: "from-green-500 to-emerald-400",
@@ -274,6 +322,18 @@ export const servicesData = [
     heroDesc:
       "High-performing Google, Facebook, and Instagram ad campaigns designed to generate quality leads and boost sales — with measurable ROI.",
     category: "Paid Ads",
+    seoTitle: "Google & Meta Ads Management Agency | Performance Marketing Rajasthan",
+    seoDesc: "Maximize your return on ad spend with high-converting Google Ads and Meta Facebook/Instagram campaigns managed by certified PPC specialists at Digitee World.",
+    keywords: "Google and Meta ads management, PPC agency Rajasthan, performance marketing Indore, Facebook ads agency Kota, lead generation advertising, ROI focused paid ads",
+    seoHighlight: {
+          "badge": "Performance Marketing",
+          "heading": "Laser-Targeted Paid Campaigns with Measurable Return on Ad Spend",
+          "description": "We don't just generate clicks; we optimize for qualified leads and sales. Through negative keyword sculpting on Google Search and high-performing video creatives on Meta, our campaigns help local and regional brands scale profitably.",
+          "link": {
+                "text": "Request a Free Ad Account Audit",
+                "url": "/contact"
+          }
+    },
     duration: "Results in 7-14 Days",
     image: "/services/googleads.jfif",
     gradient: "from-orange-500 to-amber-400",
@@ -340,6 +400,18 @@ export const servicesData = [
     heroDesc:
       "Complete YouTube strategy — channel optimization, video SEO, thumbnails, and ads to build a subscriber base and dominate search.",
     category: "Marketing",
+    seoTitle: "YouTube Marketing & Video SEO Agency | Digitee World",
+    seoDesc: "Scale your YouTube presence with end-to-end channel management, video SEO, scripting, monetization strategies, and audience retention optimization.",
+    keywords: "YouTube marketing services, YouTube channel growth Rajasthan, video SEO agency, YouTube monetization strategy, video production Kota, viral channel optimization",
+    seoHighlight: {
+          "badge": "Long-Term Digital Assets",
+          "heading": "Video SEO & Algorithmic Channel Scaling",
+          "description": "YouTube is the world's second-largest search engine. We optimize video titles, tags, custom thumbnails, and audience retention hooks to position your videos in suggested feeds and search results, building enduring brand authority.",
+          "link": {
+                "text": "See YouTube Channel Growth Results",
+                "url": "/portfolio"
+          }
+    },
     duration: "Growth in 45-90 Days",
     image: "/services/youtube.jfif",
     gradient: "from-red-500 to-pink-500",
@@ -406,6 +478,18 @@ export const servicesData = [
     heroDesc:
       "Share your contact, social profiles, website, and portfolio with one tap or QR scan. Eco-friendly, always updated, and never runs out.",
     category: "Branding",
+    seoTitle: "Digital Business Card & Smart NFC Visiting Cards | Digitee World",
+    seoDesc: "Share your contact details, portfolio, and social links instantly with 1-tap smart digital business cards powered by NFC technology and custom QR code profiles.",
+    keywords: "digital business card, smart NFC business cards India, digital visiting card Rajasthan, contactless networking, QR code profile card, paperless business card",
+    seoHighlight: {
+          "badge": "Smart Networking",
+          "heading": "Modernize Your Professional Introductions with Instant NFC",
+          "description": "Never lose a connection due to forgotten paper cards. A single tap of your Digitee World NFC card transfers your complete contact vCard, website link, and portfolio directly into the recipient's smartphone contact list.",
+          "link": {
+                "text": "Browse NFC Smart Cards in Shop",
+                "url": "/products"
+          }
+    },
     duration: "Ready in 24-48 Hours",
     image: "/services/digitalcard.jfif",
     gradient: "from-violet-500 to-purple-500",
@@ -472,6 +556,18 @@ export const servicesData = [
     heroDesc:
       "Complete SEO — on-page, off-page, technical, and local — to bring organic traffic that converts into customers month after month.",
     category: "SEO",
+    seoTitle: "SEO Services in Rajasthan & SEO Agency in Indore | Digitee World",
+    seoDesc: "Rank at the top of Google search with result-driven SEO services from Digitee World. Keyword research, technical audits, content optimization, and high-authority backlinks.",
+    keywords: "SEO services in Rajasthan, SEO agency in Indore, search engine optimization Kota, local SEO services, Google search visibility, on-page SEO, technical SEO agency",
+    seoHighlight: {
+          "badge": "Organic Search Supremacy",
+          "heading": "Sustainable Google Rankings Driven by Physics-Based Optimization",
+          "description": "Our organic SEO framework combines rigorous technical site health, semantic keyword architecture, and content velocity to secure page 1 positions on competitive search queries across Rajasthan, Central India, and national markets.",
+          "link": {
+                "text": "Explore Custom Website Development",
+                "url": "/services/website-development"
+          }
+    },
     duration: "3 Months for Results",
     image: "/services/seo.jfif",
     gradient: "from-indigo-500 to-blue-500",
@@ -538,6 +634,18 @@ export const servicesData = [
     heroDesc:
       "Intelligent AI chatbots for websites, WhatsApp, and social media that answer queries, capture leads, and support customers around the clock.",
     category: "AI Automation",
+    seoTitle: "AI Chatbot Development & Business Automation | Digitee World",
+    seoDesc: "Automate lead qualification and customer support 24/7 with custom AI chatbot development tailored for your website, CRM, and WhatsApp messaging channels.",
+    keywords: "AI chatbot development, business chatbot automation, 24/7 customer support bot, conversational AI Rajasthan, WhatsApp website chatbot, customer service AI",
+    seoHighlight: {
+          "badge": "24/7 Instant Response",
+          "heading": "Never Miss an Inbound Lead with Conversational AI",
+          "description": "Prospective buyers expect instant replies. Our custom AI chatbots train on your business knowledge base to answer client FAQs, capture verified contact numbers, and book appointments automatically at any hour.",
+          "link": {
+                "text": "Integrate with Appointment Booking",
+                "url": "/services/appointment-booking-tool"
+          }
+    },
     duration: "Live in 5-7 Days",
     image: "/services/ai-chatbot.jfif",
     gradient: "from-fuchsia-500 to-pink-500",
@@ -604,6 +712,18 @@ export const servicesData = [
     heroDesc:
       "AI-powered voice agents that handle inbound calls, qualify leads, book appointments, and provide human-like responses in multiple languages.",
     category: "AI Automation",
+    seoTitle: "AI Call Agent & Voice Automation Solutions | Digitee World",
+    seoDesc: "Transform customer telephone calls with intelligent AI call agents that handle inquiries, book appointments, and follow up leads automatically in natural human-like tone.",
+    keywords: "AI call agent services, voice AI agent for business, automated phone call system, conversational voice bot India, lead follow-up automation, inbound outbound AI caller",
+    seoHighlight: {
+          "badge": "Voice Intelligence",
+          "heading": "Human-Like Voice Automation for Inbound & Outbound Calling",
+          "description": "Handle high telephone inquiry volumes without ballooning support headcount. Our AI call agents conduct natural conversations in English and regional dialects to confirm appointments, qualify leads, and resolve customer questions.",
+          "link": {
+                "text": "Discover All AI Automation Tools",
+                "url": "/services/ai-business-tools"
+          }
+    },
     duration: "Setup in 7-10 Days",
     image: "/services/ai-call-agent.jfif",
     gradient: "from-purple-500 to-indigo-500",
@@ -670,6 +790,18 @@ export const servicesData = [
     heroDesc:
       "Let customers book appointments 24/7 via your website, WhatsApp, or GMB — with automatic reminders, confirmations, and calendar sync.",
     category: "Automation",
+    seoTitle: "Smart Appointment Booking Tool & Online Scheduling | Digitee World",
+    seoDesc: "Eliminate scheduling delays with Digitee World's automated appointment booking tool. Instant calendar synchronization, automated reminders, and client booking portals.",
+    keywords: "appointment booking tool, online scheduling software, automated appointment system Rajasthan, calendar booking tool Kota, client booking automation, business scheduling tool",
+    seoHighlight: {
+          "badge": "Frictionless Scheduling",
+          "heading": "Zero-Friction Calendar Booking for Service Professionals",
+          "description": "Perfect for doctors, consultants, educators, and salons in Kota and Indore. Provide clients with an easy mobile booking link that prevents double bookings, synchronizes with Google Calendar, and sends automatic WhatsApp reminders.",
+          "link": {
+                "text": "Automate Reminders via WhatsApp Marketing",
+                "url": "/services/whatsapp-marketing"
+          }
+    },
     duration: "Setup in 3-5 Days",
     image: "/services/appointment-booking.jfif",
     gradient: "from-teal-500 to-cyan-500",
@@ -736,6 +868,18 @@ export const servicesData = [
     heroDesc:
       "Tailored AI solutions for content generation, data analysis, workflow automation, and business intelligence — built specifically for your needs.",
     category: "AI Automation",
+    seoTitle: "Custom AI Business Tools & Workflow Automation | Digitee World",
+    seoDesc: "Supercharge your enterprise efficiency with custom AI business tools and workflow automations engineered to save time, reduce overhead, and accelerate growth.",
+    keywords: "AI business tools, workflow automation AI, business productivity AI Rajasthan, enterprise AI tools Indore, custom AI integration, operational efficiency software",
+    seoHighlight: {
+          "badge": "Operational Leverage",
+          "heading": "Custom AI Workflows Engineered for Lean Enterprise Scale",
+          "description": "Eliminate repetitive manual tasks. We build bespoke AI pipelines that automate proposal drafting, CRM data entry, review monitoring, and invoice tracking to give business owners hundreds of productive hours back each month.",
+          "link": {
+                "text": "Book an Automation Strategy Call",
+                "url": "/contact"
+          }
+    },
     duration: "Custom Timeline",
     image: "/services/ai-business-tools.jfif",
     gradient: "from-yellow-500 to-orange-500",
